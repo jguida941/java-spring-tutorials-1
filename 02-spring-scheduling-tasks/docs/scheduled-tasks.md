@@ -54,7 +54,7 @@ public void reportCurrentTime() { ... }
 - `fixedRate = 5000` means run every 5000 milliseconds (every 5 seconds).
 - Spring uses the scheduler enabled by `@EnableScheduling` in the main app class.
 
-## Method Body
+## Method body
 
 ```java
 log.info("The time is now {}", dateFormat.format(new Date()));

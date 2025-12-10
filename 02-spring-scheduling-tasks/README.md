@@ -64,22 +64,29 @@ For more run options, see [Running](#running).
 
 ### Source files
 
-| File | Description |
-|------|-------------|
+| File                                                                                                           | Description                                                      |
+|----------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | [`SchedulingTasksApplication.java`](src/main/java/com/example/schedulingtasks/SchedulingTasksApplication.java) | Main class with `@SpringBootApplication` and `@EnableScheduling` |
-| [`ScheduledTasks.java`](src/main/java/com/example/schedulingtasks/ScheduledTasks.java) | Component with `@Scheduled` method that logs the time |
-| [`application.properties`](src/main/resources/application.properties) | Spring Boot configuration |
-| [`pom.xml`](pom.xml) | Maven dependencies and build config |
+| [`ScheduledTasks.java`](src/main/java/com/example/schedulingtasks/ScheduledTasks.java)                         | Component with `@Scheduled` method that logs the time            |
+| [`application.properties`](src/main/resources/application.properties)                                          | Spring Boot configuration                                        |
+| [`pom.xml`](pom.xml)                                                                                           | Maven dependencies and build config                              |
+
+### Test files
+
+| File                                                                                                                     | Description                                  |
+|--------------------------------------------------------------------------------------------------------------------------|----------------------------------------------|
+| [`SchedulingTasksApplicationTests.java`](src/test/java/com/example/schedulingtasks/SchedulingTasksApplicationTests.java) | Verifies the Spring context loads            |
+| [`ScheduledTasksTest.java`](src/test/java/com/example/schedulingtasks/ScheduledTasksTest.java)                           | Verifies the scheduler runs using Awaitility |
 
 ### Documentation
 
-| File | Description |
-|------|-------------|
-| [`docs/guide.md`](docs/guide.md) | Spring scheduling guide reference |
-| [`docs/scheduled-tasks.md`](docs/scheduled-tasks.md) | Breakdown of ScheduledTasks and SLF4J logging |
-| [`docs/spring-initializr.md`](docs/spring-initializr.md) | How to set up the project with Spring Initializr |
-| [`docs/run-instructions.md`](docs/run-instructions.md) | Detailed instructions for running the application |
-| [`docs/testing.md`](docs/testing.md) | How to test scheduled tasks with Awaitility |
+| File                                                     | Description                                       |
+|----------------------------------------------------------|---------------------------------------------------|
+| [`docs/guide.md`](docs/guide.md)                         | Spring scheduling guide reference                 |
+| [`docs/scheduled-tasks.md`](docs/scheduled-tasks.md)     | Breakdown of ScheduledTasks and SLF4J logging     |
+| [`docs/spring-initializr.md`](docs/spring-initializr.md) | How to set up the project with Spring Initializr  |
+| [`docs/run-instructions.md`](docs/run-instructions.md)   | Detailed instructions for running the application |
+| [`docs/testing.md`](docs/testing.md)                     | How to test scheduled tasks with Awaitility       |
 
 ## Key concepts
 
@@ -130,7 +137,7 @@ java -jar target/scheduling-tasks-0.0.1-SNAPSHOT.jar
 
 ## Testing
 
-Run tests with:
+Run tests from the project root:
 
 ```bash
 ./mvnw test
@@ -149,5 +156,6 @@ See [`docs/testing.md`](docs/testing.md) for a detailed breakdown of how the tes
 
 ### Test output
 
-<img width="1658" height="937" alt="Screenshot 2025-12-10 at 3 04 09 PM" src="https://github.com/user-attachments/assets/c4182b3b-172a-434a-8977-2244fb700084" />
+Example `./mvnw test` run with all tests passing:
 
+<img width="1658" height="937" alt="Screenshot 2025-12-10 at 3 04 09 PM" src="https://github.com/user-attachments/assets/c4182b3b-172a-434a-8977-2244fb700084" />

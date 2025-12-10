@@ -124,7 +124,7 @@ public class ScheduledTasksTest {
 > annotation is deprecated in Spring Boot 4.0.0. Import it from
 > `org.springframework.test.context.bean.override.mockito.MockitoSpyBean`.
 
-This test automatically runs when you run the `./gradlew clean build` task.
+This test automatically runs when you run `./mvnw test` (or `./gradlew test` if using Gradle).
 
 ## Building the Application
 

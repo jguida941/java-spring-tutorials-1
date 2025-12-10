@@ -67,8 +67,8 @@ private ScheduledTasks tasks;
 
 - Replaces the normal `ScheduledTasks` bean in the Spring context with a spy (from Mockito).
 - A spy is a real object that still runs the real code, but you can also:
-  - Record how many times methods were called.
-  - Verify interactions.
+   - Record how many times methods were called.
+   - Verify interactions.
 - In this test, it lets you check that `reportCurrentTime()` was actually called by the scheduler.
 - **Spring Boot 4.0.0:** Uses `@MockitoSpyBean` instead of the deprecated `@SpyBean`.
 
@@ -118,6 +118,14 @@ await().atMost(Durations.TEN_SECONDS).untilAsserted(() -> {
   
 
 ## Running tests
+
+```bash
+./mvnw test
+```
+
+## Running tests
+
+From the project root (`02-spring-scheduling-tasks/`):
 
 ```bash
 ./mvnw test
