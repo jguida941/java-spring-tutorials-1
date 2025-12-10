@@ -25,8 +25,8 @@ From a module folder, for example `01-spring-hello-rest`:
 ## Module layout
 
 Each module contains:
-- `spring-initializr.md` – Spring Initializr configuration used to create the project.
-- `README.md` and notes – short explanations of key annotations and classes.
+- `spring-initializr.md` - Spring Initializr configuration used to create the project.
+- `README.md` and notes - short explanations of key annotations and classes.
 - Source code under `src/main/java/`.
 
 ## Future work
