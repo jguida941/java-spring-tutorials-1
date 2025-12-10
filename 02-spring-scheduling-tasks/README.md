@@ -12,7 +12,7 @@ Based on the official [Spring Scheduling Tasks Guide](https://spring.io/guides/g
 - Spring Boot 4.0.0 (via `spring-boot-starter-parent`)
 - Maven (or the included Maven wrapper `mvnw`)
 
-## Quick start
+## Quick start (Maven)
 
 From the project root:
 
