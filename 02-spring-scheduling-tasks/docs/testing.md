@@ -119,12 +119,6 @@ await().atMost(Durations.TEN_SECONDS).untilAsserted(() -> {
 
 ## Running tests
 
-```bash
-./mvnw test
-```
-
-## Running tests
-
 From the project root (`02-spring-scheduling-tasks/`):
 
 ```bash
