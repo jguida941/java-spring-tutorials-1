@@ -1,0 +1,19 @@
+# IDE
+.idea/
+*.iml
+
+# macOS
+.DS_Store
+
+# Build outputs
+target/
+build/
+out/
+
+# Maven
+*.jar
+*.war
+*.ear
+
+# Gradle
+.gradle/
