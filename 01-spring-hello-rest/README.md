@@ -48,14 +48,20 @@ http://localhost:8080/greeting?name=YourName
 
 ## Documentation
 
-See the [docs/](docs/) folder for detailed documentation:
+| File | Description |
+|------|-------------|
+| [spring-initializr.md](docs/spring-initializr.md) | How to create the project using Spring Initializr |
+| [rest-controller-greeting.md](docs/rest-controller-greeting.md) | Detailed explanation of the GreetingController |
+| [run-instructions.md](docs/run-instructions.md) | How to build and run the application |
+| [guide.md](docs/guide.md) | Additional guide and notes |
 
-- [index.md](docs/index.md) - Documentation index
-- [spring-initializr.md](docs/spring-initializr.md) - Project setup guide
-- [rest-controller-greeting.md](docs/rest-controller-greeting.md) - Controller
-  explanation
-- [run-instructions.md](docs/run-instructions.md) - How to run the app
-- [guide.md](docs/guide.md) - Additional guide
+### Getting Started
+
+1. Start with [spring-initializr.md](docs/spring-initializr.md) to understand
+   how the project was created
+2. Read [rest-controller-greeting.md](docs/rest-controller-greeting.md) to
+   understand how the REST endpoint works
+3. Follow [run-instructions.md](docs/run-instructions.md) to run the application
 
 ## Technologies
 
