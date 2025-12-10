@@ -1,5 +1,5 @@
 
-# java-tutorials
+# java-tutorials-spring
 
 This repository contains hands-on implementations of the official
 [Spring.io guides](https://spring.io/guides), along with my own notes and explanations.
