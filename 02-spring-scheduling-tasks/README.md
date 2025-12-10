@@ -50,7 +50,8 @@ For more run options, see [Running](#running).
 │   │       └── application.properties            # App configuration
 │   └── test/
 │       └── java/com/example/schedulingtasks/
-│           └── SchedulingTasksApplicationTests.java
+│           ├── SchedulingTasksApplicationTests.java
+│           └── ScheduledTasksTest.java
 └── docs/                            # Documentation
     ├── guide.md                     # Spring guide reference
     ├── scheduled-tasks.md           # ScheduledTasks class breakdown
