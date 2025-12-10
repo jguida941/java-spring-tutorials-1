@@ -9,6 +9,7 @@ Based on the official [Spring Scheduling Tasks Guide](https://spring.io/guides/g
 ## Requirements
 
 - Java 17 or later
+- Spring Boot 4.0.0 (via `spring-boot-starter-parent`)
 - Maven (or the included Maven wrapper `mvnw`)
 
 ## Quick start
@@ -54,7 +55,8 @@ For more run options, see [Running](#running).
     ├── guide.md                     # Spring guide reference
     ├── scheduled-tasks.md           # ScheduledTasks class breakdown
     ├── spring-initializr.md         # Spring Initializr setup notes
-    └── run-instructions.md          # How to run the app
+    ├── run-instructions.md          # How to run the app
+    └── testing.md                   # Testing with Awaitility
 ```
 
 ## File index
@@ -76,6 +78,7 @@ For more run options, see [Running](#running).
 | [`docs/scheduled-tasks.md`](docs/scheduled-tasks.md) | Breakdown of ScheduledTasks and SLF4J logging |
 | [`docs/spring-initializr.md`](docs/spring-initializr.md) | How to set up the project with Spring Initializr |
 | [`docs/run-instructions.md`](docs/run-instructions.md) | Detailed instructions for running the application |
+| [`docs/testing.md`](docs/testing.md) | How to test scheduled tasks with Awaitility |
 
 ## Key concepts
 
@@ -123,3 +126,26 @@ See [`docs/run-instructions.md`](docs/run-instructions.md) for more detail.
 ./mvnw clean package
 java -jar target/scheduling-tasks-0.0.1-SNAPSHOT.jar
 ```
+
+## Testing
+
+Run tests with:
+
+```bash
+./mvnw test
+```
+
+The project includes two tests:
+- `SchedulingTasksApplicationTests` - verifies the Spring context loads.
+- `ScheduledTasksTest` - verifies the scheduler runs using Awaitility.
+
+See [`docs/testing.md`](docs/testing.md) for a detailed breakdown of how the tests work.
+
+> **Note:** This project uses `@MockitoSpyBean` instead of `@SpyBean` because Spring Boot 4.0.0
+> and the newer Spring test support use the new Mockito-based override annotations
+> (such as `@MockitoSpyBean`) instead of the older `@SpyBean` you might see in
+> Spring Boot 3.x examples and guides.
+
+### Test output
+
+<!-- Add screenshot of passing tests here -->

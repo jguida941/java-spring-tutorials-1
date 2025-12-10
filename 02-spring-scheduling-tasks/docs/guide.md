@@ -120,6 +120,10 @@ public class ScheduledTasksTest {
 }
 ```
 
+> **Note for Spring Boot 4.0.0:** Use `@MockitoSpyBean` instead of `@SpyBean`. The `@SpyBean`
+> annotation is deprecated in Spring Boot 4.0.0. Import it from
+> `org.springframework.test.context.bean.override.mockito.MockitoSpyBean`.
+
 This test automatically runs when you run the `./gradlew clean build` task.
 
 ## Building the Application
