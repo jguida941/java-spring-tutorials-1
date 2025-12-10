@@ -1,4 +1,4 @@
-## Starting with Spring Initializr
+# Starting with Spring Initializr
 
 You can use this pre-initialized project and click Generate to download a ZIP file. This project is configured to fit the examples in this tutorial.
 
@@ -15,4 +15,5 @@ If your IDE has the Spring Initializr integration, you can complete this process
 
 You can also fork the project from Github and open it in your IDE or other editor.
 
-## What it should look like
+## Project-Setup
+<img width="1182" height="850" alt="Screenshot 2025-12-10 at 10 26 16 AM" src="https://github.com/user-attachments/assets/86b294f0-b220-4fec-ba98-b026709ac0d5" />
