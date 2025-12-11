@@ -10,23 +10,23 @@ and the Spring Boot application setup (entry point, config, tests).
 
 ## Index
 
-| File                                 | Role                                           | Notes                          |
-|--------------------------------------|------------------------------------------------|--------------------------------|
-| `Quote.java`                         | Record for JSON response                       | Shared JSON shape with service |
-| `Value.java`                         | Nested record (`id`, `quote` text)             | Shared JSON shape with service |
-| `QuoteController.java`               | REST client controller, fetches quote from API | Uses `RestClient`              |
-| `ConsumingRestApplication.java`      | Main Spring Boot application entry point       | Boots the app on port 8081     |
-| `application.properties`             | Configuration                                  | Sets `server.port=8081`        |
-| `ConsumingRestApplicationTests.java` | Tests                                          | Spring Boot test scaffold      |
+| File                                                                                                                  | Role                                           | Notes                          |
+|-----------------------------------------------------------------------------------------------------------------------|------------------------------------------------|--------------------------------|
+| [`Quote.java`](../src/main/java/com/example/consumingrest/Quote.java)                                                 | Record for JSON response                       | Shared JSON shape with service |
+| [`Value.java`](../src/main/java/com/example/consumingrest/Value.java)                                                 | Nested record (`id`, `quote` text)             | Shared JSON shape with service |
+| [`QuoteController.java`](../src/main/java/com/example/consumingrest/QuoteController.java)                             | REST client controller, fetches quote from API | Uses `RestClient`              |
+| [`ConsumingRestApplication.java`](../src/main/java/com/example/consumingrest/ConsumingRestApplication.java)           | Main Spring Boot application entry point       | Boots the app on port 8081     |
+| [`application.properties`](../src/main/resources/application.properties)                                              | Configuration                                  | Sets `server.port=8081`        |
+| [`ConsumingRestApplicationTests.java`](../src/test/java/com/example/consumingrest/ConsumingRestApplicationTests.java) | Tests                                          | Spring Boot test scaffold      |
 
 ---
 
-## Files
+## Quote.java and JSON mapping patterns
 
 ### [Quote.java](../src/main/java/com/example/consumingrest/Quote.java)
 Shared JSON shape between quote-service and consuming client.
 
-```Java
+```java
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record Quote(String type, Value value) { }
 ```
@@ -48,7 +48,7 @@ Spring, through Jackson, uses this record to map the JSON response from
 the quote-service into Java, and then back into JSON when my `/quote`
 endpoint returns it.
 
-```JSON
+```json
 {
   "type": "success",
   "value" : { "id": 1, "quote": "..."}
@@ -64,14 +64,12 @@ simple examples. This is why using records is nice - it reduces the
 complexity of defining data-holding types, and it simply works with
 Jackson for JSON mapping.
 
-
-
-#### Example: All-args constructor (manual style)
+### Example: All-args constructor (manual style)
 
 This is how you can write a class by hand - pass all data up
 front with `new Quote("success", value)`.
 
-```Java
+```java
 public class Quote {
 
   private String type;
@@ -97,13 +95,12 @@ Unlike the no-arg + setters pattern that Jackson uses by default
 (`new Quote()` then `setType(...)` / `setValue(...)`), this style
 expects all data up front in the constructor call.
 
-
-#### Example: No-arg constructor + setters (Jackson default)
+### Example: No-arg constructor + setters (Jackson default)
 
 This is the pattern Jackson uses by default for JSON deserialization.
 Jackson calls the no-arg constructor, then uses setters to fill fields.
 
-```Java
+```java
 public class Quote {
 
   private String type;
@@ -121,7 +118,6 @@ public class Quote {
   public void setValue(Value value) { this.value = value; }
 }
 ```
-
 
 ## Step by step explanation of mutable fields with setters
 
@@ -142,8 +138,6 @@ public class Quote {
 | **Constructor** | How the object is created          |
 | **Setters**     | How we change the fields           |
 | **Getters**     | How we read the fields             |
-
-
 
 ### Step 2: When are the fields "constructed"?
 
@@ -168,8 +162,6 @@ Quote q = new Quote();
 
 **Key Point:** Nothing has called `setType` or `setValue` yet.
 
-
-
 ### Step 3: When are the fields "set"?
 
 **When you call this (e.g., inside
@@ -190,8 +182,6 @@ q.setValue(new Value(1L, "some quote"));
 **Summary:**
 - The fields are created at construction (`new Quote()`).
 - They are filled/changed when setters are called.
-
-
 
 ### Step 4: How does Jackson use this?
 
@@ -247,8 +237,6 @@ public void setType(String type) {
 ```
 
 If the field was `final`, this line would not be allowed.
-
-
 
 ### Final Summary
 
@@ -312,7 +300,7 @@ public class Quote {
 2. Jackson calls `setType(jsonType)` and `setValue(jsonValue)` to fill
    the fields.
 
-**Key point:**
+**Key Point:**
 Fields cannot be final here, because setters need to change them after
 construction.
 
@@ -357,7 +345,7 @@ public class Quote {
 4. The fields are set once in the constructor and never change, so they can
    be final.
 
-**Key point:**
+**Key Point:**
 Here we do not use setters at all. All data comes in through the
 constructor once.
 
@@ -404,19 +392,22 @@ without writing all the boilerplate by hand.
 
 ---
 
-### Value.java
+## Remaining files (high level)
+
+
+### [Value.java](../src/main/java/com/example/consumingrest/Value.java)
 Shared JSON shape between quote-service and consuming client.
 
 Represents the nested "value" part of the JSON: an `id` and the `quote`
 text itself.
 
-```Java
+```java
 public record Value(Long id, String quote) { }
 ```
 
 ---
 
-### QuoteController.java
+### [QuoteController.java](../src/main/java/com/example/consumingrest/QuoteController.java)
 
 TODO: Explain the controller
 
@@ -429,11 +420,11 @@ TODO: Explain the controller
 
 ---
 
-### ConsumingRestApplication.java
+### [ConsumingRestApplication.java](../src/main/java/com/example/consumingrest/ConsumingRestApplication.java)
 
 TODO: Explain the main application class
 
-```Java
+```java
 @SpringBootApplication
 public class ConsumingRestApplication {
     public static void main(String[] args) {
@@ -444,7 +435,7 @@ public class ConsumingRestApplication {
 
 ---
 
-### application.properties
+### [application.properties](../src/main/resources/application.properties)
 
 TODO: Explain the configuration
 
@@ -454,6 +445,6 @@ server.port=8081
 
 ---
 
-### ConsumingRestApplicationTests.java
+### [ConsumingRestApplicationTests.java](../src/test/java/com/example/consumingrest/ConsumingRestApplicationTests.java)
 
 TODO: Explain the test class

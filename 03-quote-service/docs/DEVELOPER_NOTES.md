@@ -19,7 +19,7 @@ Shared JSON shape between quote-service and consuming client.
 
 TODO: Explain the Quote record
 
-```Java
+```java
 public record Quote(String type, Value value) { }
 ```
 
@@ -31,7 +31,7 @@ Shared JSON shape between quote-service and consuming client.
 Represents the nested "value" part of the JSON: an `id` and the `quote`
 text itself.
 
-```Java
+```java
 public record Value(Long id, String quote) { }
 ```
 
@@ -56,7 +56,7 @@ TODO: Explain the controller
 
 TODO: Explain the main application class
 
-```Java
+```java
 @SpringBootApplication
 public class QuoteServiceApplication {
     public static void main(String[] args) {
