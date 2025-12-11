@@ -29,7 +29,6 @@ When you call `/greeting`, you get a response like:
 │   └── test/java/com/example/restservice/
 │       └── RestServiceApplicationTests.java
 ├── docs/
-│   ├── knowledge-summary.md              # My personal knowledge summary
 │   ├── setup/
 │   │   ├── spring-initializr.md          # Project setup from start.spring.io
 │   │   └── run-instructions.md           # How to build and run
@@ -66,21 +65,8 @@ http://localhost:8080/greeting?name=YourName
 
 ## Documentation
 
-```
-docs/
-├── knowledge-summary.md              # My personal knowledge summary
-├── setup/
-│   ├── spring-initializr.md          # Project setup from start.spring.io
-│   └── run-instructions.md           # How to build and run
-├── concepts/
-│   └── rest-controller-greeting.md   # GreetingController explanation
-└── reference/
-    └── guide.md                      # Original Spring guide
-```
-
 | File | Description |
 |------|-------------|
-| [knowledge-summary.md](docs/knowledge-summary.md) | My personal knowledge summary |
 | [spring-initializr.md](docs/setup/spring-initializr.md) | How to create the project using Spring Initializr |
 | [rest-controller-greeting.md](docs/concepts/rest-controller-greeting.md) | Detailed explanation of the GreetingController |
 | [run-instructions.md](docs/setup/run-instructions.md) | How to build and run the application |

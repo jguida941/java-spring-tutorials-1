@@ -41,7 +41,7 @@ From a module folder, for example `01-spring-hello-rest`:
 ```
   The 03 modules also include:
   
-  - `docs/knowledge-summary.md` - Personal notes and takeaways
+  - `docs/DEVELOPER_NOTES.md`   - Personal notes and takeaways
   - `docs/adr/`                 - Architecture Decision Records documenting design choices
 
 

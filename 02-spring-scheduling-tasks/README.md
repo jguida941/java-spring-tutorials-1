@@ -52,7 +52,6 @@ For more run options, see [Running](#running).
 │           ├── SchedulingTasksApplicationTests.java
 │           └── ScheduledTasksTest.java
 └── docs/                            # Documentation
-    ├── knowledge-summary.md         # My personal knowledge summary
     ├── setup/
     │   ├── spring-initializr.md     # Spring Initializr setup notes
     │   └── run-instructions.md      # How to run the app
@@ -85,7 +84,6 @@ For more run options, see [Running](#running).
 
 | File                                                                   | Description                                       |
 |------------------------------------------------------------------------|---------------------------------------------------|
-| [`docs/knowledge-summary.md`](docs/knowledge-summary.md)               | My personal knowledge summary                     |
 | [`docs/setup/spring-initializr.md`](docs/setup/spring-initializr.md)   | How to set up the project with Spring Initializr  |
 | [`docs/setup/run-instructions.md`](docs/setup/run-instructions.md)     | Detailed instructions for running the application |
 | [`docs/concepts/scheduled-tasks.md`](docs/concepts/scheduled-tasks.md) | Breakdown of ScheduledTasks and SLF4J logging     |
