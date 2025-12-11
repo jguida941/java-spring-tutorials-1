@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * <p>Endpoints:
  * <ul>
- *   <li>{@code GET /api/}        – all quotes</li>
- *   <li>{@code GET /api/random}  – random quote</li>
- *   <li>{@code GET /api/{id}}    – quote by ID</li>
+ *   <li>{@code GET /api/}        - all quotes</li>
+ *   <li>{@code GET /api/random}  - random quote</li>
+ *   <li>{@code GET /api/{id}}    - quote by ID</li>
  * </ul>
  * </p>
  */
@@ -62,7 +62,7 @@ public class QuoteController {
     /**
      * Returns a quote by its id, or a failure message if not found.
      *
-     * @param id quote identifier (1–10)
+     * @param id quote identifier (1-10)
      */
     @GetMapping("/{id}")
     public Quote byId(@PathVariable Long id) {

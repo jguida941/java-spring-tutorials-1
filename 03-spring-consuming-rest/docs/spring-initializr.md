@@ -14,8 +14,8 @@ Created from https://start.spring.io with:
 - Java: 17
 - Configuration: Properties
 - Dependencies:
-  - **Spring Web** – Embedded web server for exposing our `/quote` endpoint
-  - **HTTP Client** – Provides `RestClient.Builder` auto-configuration for making HTTP requests
+  - **Spring Web** - Embedded web server for exposing our `/quote` endpoint
+  - **HTTP Client** - Provides `RestClient.Builder` auto-configuration for making HTTP requests
 
 # Final Spring Initializr configuration
 

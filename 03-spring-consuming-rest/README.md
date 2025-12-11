@@ -81,10 +81,10 @@ curl http://localhost:8081/quote
 
 ## Key Concepts
 
-- **RestClient** – Spring Boot 3.2+ HTTP client for making REST calls.
-- **Java Records** – Immutable data classes (`Quote`, `Value`).
-- **Constructor Injection** – How Spring provides dependencies.
-- **@JsonIgnoreProperties** – Ignore unknown JSON fields during deserialization.
+- **RestClient** - Spring Boot 3.2+ HTTP client for making REST calls.
+- **Java Records** - Immutable data classes (`Quote`, `Value`).
+- **Constructor Injection** - How Spring provides dependencies.
+- **@JsonIgnoreProperties** - Ignore unknown JSON fields during deserialization.
 
 ## Documentation
 
@@ -103,6 +103,6 @@ curl http://localhost:8081/quote
 
 ## Related
 
-- [03-quote-service](../03-quote-service) – The backend this consumer calls
+- [03-quote-service](../03-quote-service) - The backend this consumer calls
 - [Spring Guide: Consuming a RESTful Web Service](https://spring.io/guides/gs/consuming-rest)
 - [Spring Docs: REST Clients](https://docs.spring.io/spring-boot/reference/io/rest-client.html)

@@ -15,8 +15,8 @@ For this learning repo, we want everything to be self-contained and written here
 
 Create two separate modules in the `java-tutorials` repository:
 
-- `03-quote-service` – REST API provider (this module)
-- `03-consuming-rest` – REST client consumer
+- `03-quote-service` - REST API provider (this module)
+- `03-consuming-rest` - REST client consumer
 
 Each module is a standalone Spring Boot application that can be built and run independently.
 

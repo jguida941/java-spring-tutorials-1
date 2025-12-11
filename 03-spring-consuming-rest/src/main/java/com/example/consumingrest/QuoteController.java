@@ -9,7 +9,7 @@ import org.springframework.web.client.RestClient;
  *
  * <p>Endpoint:</p>
  * <ul>
- *   <li>{@code GET /quote} – fetches a random quote from the backend</li>
+ *   <li>{@code GET /quote} - fetches a random quote from the backend</li>
  * </ul>
  *
  * <p>Uses {@link RestClient} (Spring Boot 3.2+) to call the quote-service
