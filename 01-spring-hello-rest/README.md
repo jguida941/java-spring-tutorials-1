@@ -60,20 +60,33 @@ http://localhost:8080/greeting?name=YourName
 
 ## Documentation
 
+```
+docs/
+├── knowledge-summary.md              # My personal knowledge summary
+├── setup/
+│   ├── spring-initializr.md          # Project setup from start.spring.io
+│   └── run-instructions.md           # How to build and run
+├── concepts/
+│   └── rest-controller-greeting.md   # GreetingController explanation
+└── reference/
+    └── guide.md                      # Original Spring guide
+```
+
 | File | Description |
 |------|-------------|
-| [spring-initializr.md](docs/spring-initializr.md) | How to create the project using Spring Initializr |
-| [rest-controller-greeting.md](docs/rest-controller-greeting.md) | Detailed explanation of the GreetingController |
-| [run-instructions.md](docs/run-instructions.md) | How to build and run the application |
-| [guide.md](docs/guide.md) | Additional guide and notes |
+| [knowledge-summary.md](docs/knowledge-summary.md) | My personal knowledge summary |
+| [spring-initializr.md](docs/setup/spring-initializr.md) | How to create the project using Spring Initializr |
+| [rest-controller-greeting.md](docs/concepts/rest-controller-greeting.md) | Detailed explanation of the GreetingController |
+| [run-instructions.md](docs/setup/run-instructions.md) | How to build and run the application |
+| [guide.md](docs/reference/guide.md) | Original Spring guide reference |
 
 ### Getting Started
 
-1. Start with [spring-initializr.md](docs/spring-initializr.md) to understand
+1. Start with [spring-initializr.md](docs/setup/spring-initializr.md) to understand
    how the project was created
-2. Read [rest-controller-greeting.md](docs/rest-controller-greeting.md) to
+2. Read [rest-controller-greeting.md](docs/concepts/rest-controller-greeting.md) to
    understand how the REST endpoint works
-3. Follow [run-instructions.md](docs/run-instructions.md) to run the application
+3. Follow [run-instructions.md](docs/setup/run-instructions.md) to run the application
 
 ## Technologies
 

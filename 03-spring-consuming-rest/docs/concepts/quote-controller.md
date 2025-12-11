@@ -71,12 +71,12 @@ public Quote getQuote() {
 
 **Step by step:**
 
-| Code | What it does |
-|------|--------------|
-| `restClient.get()` | Start building a GET request |
-| `.uri("/api/random")` | Add this path to the base URL |
-| `.retrieve()` | Execute the request |
-| `.body(Quote.class)` | Parse the JSON response into a `Quote` object |
+| Code                  | What it does                                  |
+|-----------------------|-----------------------------------------------|
+| `restClient.get()`    | Start building a GET request                  |
+| `.uri("/api/random")` | Add this path to the base URL                 |
+| `.retrieve()`         | Execute the request                           |
+| `.body(Quote.class)`  | Parse the JSON response into a `Quote` object |
 
 **The full URL:**
 ```
@@ -139,11 +139,11 @@ This is the same JSON that the quote-service returns. The consumer just passes i
 
 Spring has three HTTP clients:
 
-| Client | When to use |
-|--------|-------------|
-| **RestClient** | New projects (Spring Boot 3.2+). Simple, modern. |
-| RestTemplate | Old projects. Still works but not recommended for new code. |
-| WebClient | When you need async/reactive code. |
+| Client         | When to use                                                 |
+|----------------|-------------------------------------------------------------|
+| **RestClient** | New projects (Spring Boot 3.2+). Simple, modern.            |
+| RestTemplate   | Old projects. Still works but not recommended for new code. |
+| WebClient      | When you need async/reactive code.                          |
 
 We use `RestClient` because it is the recommended choice for Spring Boot 3.2+ when making synchronous HTTP calls.
 

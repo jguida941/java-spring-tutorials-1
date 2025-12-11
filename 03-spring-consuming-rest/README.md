@@ -16,15 +16,20 @@ Based on [Spring Guide: Consuming a RESTful Web Service](https://spring.io/guide
 │   └── Value.java                      # Record for nested JSON object
 ├── src/main/resources/
 │   └── application.properties          # Port config (8081)
+├── src/test/java/com/example/consumingrest/
+│   └── ConsumingRestApplicationTests.java  # Spring context test
 └── docs/
-    ├── summary.md                      # Personal summary of all files
-    ├── guide.md                        # Original Spring guide (reference)
-    ├── quote-controller.md             # Explains RestClient and the controller
-    ├── java-records.md                 # Explains records and JSON mapping
-    ├── run-instructions.md             # Detailed run steps
-    ├── spring-initializr.md            # Project setup from start.spring.io
+    ├── knowledge-summary.md             # My personal knowledge summary
+    ├── setup/
+    │   ├── spring-initializr.md         # Project setup from start.spring.io
+    │   └── run-instructions.md          # Detailed run steps
+    ├── concepts/
+    │   ├── quote-controller.md          # Explains RestClient and the controller
+    │   └── java-records.md              # Explains records and JSON mapping
+    ├── reference/
+    │   └── guide.md                     # Original Spring guide
     └── adr/
-        ├── ADR-0003-use-restclient.md  # Why RestClient
+        ├── ADR-0003-use-restclient.md   # Why RestClient
         └── ADR-0004-expose-quote-endpoint.md  # Why REST endpoint
 ```
 
@@ -101,12 +106,14 @@ curl http://localhost:8081/quote
 
 ## Documentation
 
-| File                                                 | Explains                                              |
-|------------------------------------------------------|-------------------------------------------------------|
-| [docs/summary.md](docs/summary.md)                   | Personal summary of all files in this project         |
-| [docs/quote-controller.md](docs/quote-controller.md) | How RestClient and the controller work                |
-| [docs/java-records.md](docs/java-records.md)         | What records are and how JSON mapping works           |
-| [docs/run-instructions.md](docs/run-instructions.md) | Detailed run steps (expanded version of this section) |
+| File                                                                     | Explains                                |
+|--------------------------------------------------------------------------|-----------------------------------------|
+| [knowledge-summary.md](docs/knowledge-summary.md)                        | My personal knowledge summary           |
+| [setup/spring-initializr.md](docs/setup/spring-initializr.md)            | Project setup from start.spring.io      |
+| [setup/run-instructions.md](docs/setup/run-instructions.md)              | Detailed run steps                      |
+| [concepts/quote-controller.md](docs/concepts/quote-controller.md)        | How RestClient and the controller work  |
+| [concepts/java-records.md](docs/concepts/java-records.md)                | What records are and how JSON mapping works |
+| [reference/guide.md](docs/reference/guide.md)                            | Original Spring guide                   |
 
 ## ADRs
 

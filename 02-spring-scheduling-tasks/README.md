@@ -53,11 +53,15 @@ For more run options, see [Running](#running).
 │           ├── SchedulingTasksApplicationTests.java
 │           └── ScheduledTasksTest.java
 └── docs/                            # Documentation
-    ├── guide.md                     # Spring guide reference
-    ├── scheduled-tasks.md           # ScheduledTasks class breakdown
-    ├── spring-initializr.md         # Spring Initializr setup notes
-    ├── run-instructions.md          # How to run the app
-    └── testing.md                   # Testing with Awaitility
+    ├── knowledge-summary.md         # My personal knowledge summary
+    ├── setup/
+    │   ├── spring-initializr.md     # Spring Initializr setup notes
+    │   └── run-instructions.md      # How to run the app
+    ├── concepts/
+    │   ├── scheduled-tasks.md       # ScheduledTasks class breakdown
+    │   └── testing.md               # Testing with Awaitility
+    └── reference/
+        └── guide.md                 # Spring guide reference
 ```
 
 ## File index
@@ -80,13 +84,14 @@ For more run options, see [Running](#running).
 
 ### Documentation
 
-| File                                                     | Description                                       |
-|----------------------------------------------------------|---------------------------------------------------|
-| [`docs/guide.md`](docs/guide.md)                         | Spring scheduling guide reference                 |
-| [`docs/scheduled-tasks.md`](docs/scheduled-tasks.md)     | Breakdown of ScheduledTasks and SLF4J logging     |
-| [`docs/spring-initializr.md`](docs/spring-initializr.md) | How to set up the project with Spring Initializr  |
-| [`docs/run-instructions.md`](docs/run-instructions.md)   | Detailed instructions for running the application |
-| [`docs/testing.md`](docs/testing.md)                     | How to test scheduled tasks with Awaitility       |
+| File                                                                   | Description                                       |
+|------------------------------------------------------------------------|---------------------------------------------------|
+| [`docs/knowledge-summary.md`](docs/knowledge-summary.md)               | My personal knowledge summary                     |
+| [`docs/setup/spring-initializr.md`](docs/setup/spring-initializr.md)   | How to set up the project with Spring Initializr  |
+| [`docs/setup/run-instructions.md`](docs/setup/run-instructions.md)     | Detailed instructions for running the application |
+| [`docs/concepts/scheduled-tasks.md`](docs/concepts/scheduled-tasks.md) | Breakdown of ScheduledTasks and SLF4J logging     |
+| [`docs/concepts/testing.md`](docs/concepts/testing.md)                 | How to test scheduled tasks with Awaitility       |
+| [`docs/reference/guide.md`](docs/reference/guide.md)                   | Spring scheduling guide reference                 |
 
 ## Key concepts
 
@@ -120,7 +125,7 @@ public void reportCurrentTime() {
 
 ## Running
 
-See [`docs/run-instructions.md`](docs/run-instructions.md) for more detail.
+See [`docs/setup/run-instructions.md`](docs/setup/run-instructions.md) for more detail.
 
 **Maven wrapper:**
 
@@ -147,7 +152,7 @@ The project includes two tests:
 - `SchedulingTasksApplicationTests` - verifies the Spring context loads.
 - `ScheduledTasksTest` - verifies the scheduler runs using Awaitility.
 
-See [`docs/testing.md`](docs/testing.md) for a detailed breakdown of how the tests work.
+See [`docs/concepts/testing.md`](docs/concepts/testing.md) for a detailed breakdown of how the tests work.
 
 > **Note:** This project uses `@MockitoSpyBean` instead of `@SpyBean` because Spring Boot 4.0.0
 > and the newer Spring test support use the new Mockito-based override annotations
