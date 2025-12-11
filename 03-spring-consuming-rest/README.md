@@ -31,10 +31,16 @@ Based on [Spring Guide: Consuming a RESTful Web Service](https://spring.io/guide
 
 This consumer exposes a `/quote` endpoint that fetches a random quote from the quote-service:
 
-```
-You → GET /quote → consumer (localhost:8081) → GET /api/random → quote-service (localhost:8080)
-                                             ← JSON ←
-    ← JSON ←
+```mermaid
+sequenceDiagram
+    actor User
+    participant Consumer as Consumer (localhost:8081)
+    participant Provider as Quote Service (localhost:8080)
+
+    User->>Consumer: GET /quote
+    Consumer->>Provider: GET /api/random
+    Provider-->>Consumer: JSON (Quote)
+    Consumer-->>User: JSON (Quote)
 ```
 
 ## Run
@@ -69,6 +75,10 @@ curl http://localhost:8081/quote
   }
 }
 ```
+
+<img width="804" height="221" alt="Screenshot 2025-12-11 at 1 01 22 AM" src="https://github.com/user-attachments/assets/30c16f4e-c1aa-478c-9521-f31a7374353b" />
+
+
 
 ## Ports
 
