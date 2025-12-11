@@ -13,7 +13,9 @@ Created from https://start.spring.io with:
 - Packaging: Jar
 - Java: 17
 - Configuration: Properties
-- Dependencies: HTTP Client (Spring Boot integration for RestClient and RestTemplate to make HTTP requests)
+- Dependencies:
+  - **Spring Web** – Embedded web server for exposing our `/quote` endpoint
+  - **HTTP Client** – Provides `RestClient.Builder` auto-configuration for making HTTP requests
 
 # Final Spring Initializr configuration
 
