@@ -19,4 +19,4 @@ Created from https://start.spring.io with:
 
 # Final Spring Initializr configuration
 
-<img width="1147" height="880" alt="Screenshot 2025-12-10 at 3 41 50 PM" src="https://github.com/user-attachments/assets/76fc7eb9-2aeb-4e36-b3ee-4c601cc92612" />
+<img width="1147" height="880" alt="Screenshot 2025-12-10 at 3 41 50 PM" src="../images/spring-initializr.png" />

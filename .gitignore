@@ -17,3 +17,6 @@ out/
 
 # Gradle
 .gradle/
+
+# Temp files
+test.md

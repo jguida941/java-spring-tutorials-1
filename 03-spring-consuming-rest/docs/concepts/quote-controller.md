@@ -146,5 +146,4 @@ Spring has three HTTP clients:
 | WebClient      | When you need async/reactive code.                          |
 
 We use `RestClient` because it is the recommended choice for Spring Boot 3.2+ when making synchronous HTTP calls.
-yeah 
 See [ADR-0003](adr/ADR-0003-use-restclient.md) for more details on why we chose RestClient.

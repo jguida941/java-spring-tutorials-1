@@ -37,6 +37,7 @@ From a module folder, for example `01-spring-hello-rest`:
   ├── src/main/java/              # Source code
   ├── src/test/java/              # Tests (where applicable)
   ├── docs/
+  │   ├── images/                 # Screenshots
   │   ├── setup/                  # How to create and run the project
   │   ├── concepts/               # Explanations of key classes and patterns
   │   └── reference/              # Original Spring guide (where applicable)

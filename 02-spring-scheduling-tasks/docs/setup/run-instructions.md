@@ -42,6 +42,6 @@ Watch the console output to confirm that the scheduled job is running correctly.
 
 ## Example console output
 
-<img width="1226" height="832" alt="Screenshot 2025-12-10 at 2 02 45 PM" src="https://github.com/user-attachments/assets/d05d588c-9524-43c2-a495-39963705b4e8" />
+<img width="1226" height="832" alt="Screenshot 2025-12-10 at 2 02 45 PM" src="../images/run-instructions.png" />
 
 

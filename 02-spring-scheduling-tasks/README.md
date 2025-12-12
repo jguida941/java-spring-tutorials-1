@@ -32,7 +32,7 @@ For more run options, see [Running](#running).
 
 ## Example console output
 
-<img width="1221" height="551" alt="Screenshot 2025-12-10 at 2 14 13 PM" src="https://github.com/user-attachments/assets/9ea3f3ab-42ba-4ce7-9b5f-d5f390cfc690" />
+<img width="1221" height="551" alt="Screenshot 2025-12-10 at 2 14 13 PM" src="docs/images/scheduled-task-output.png" />
 
 ## Project structure
 
@@ -52,6 +52,7 @@ For more run options, see [Running](#running).
 │           ├── SchedulingTasksApplicationTests.java
 │           └── ScheduledTasksTest.java
 └── docs/                            # Documentation
+    ├── images/                      # Screenshots
     ├── setup/
     │   ├── spring-initializr.md     # Spring Initializr setup notes
     │   └── run-instructions.md      # How to run the app
@@ -160,4 +161,4 @@ See [`docs/concepts/testing.md`](docs/concepts/testing.md) for a detailed breakd
 
 Example `./mvnw test` run with all tests passing:
 
-<img width="1658" height="937" alt="Screenshot 2025-12-10 at 3 04 09 PM" src="https://github.com/user-attachments/assets/c4182b3b-172a-434a-8977-2244fb700084" />
+<img width="1658" height="937" alt="Screenshot 2025-12-10 at 3 04 09 PM" src="docs/images/intellij-test-runner.png" />

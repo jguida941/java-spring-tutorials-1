@@ -16,4 +16,4 @@ If your IDE has the Spring Initializr integration, you can complete this process
 You can also fork the project from Github and open it in your IDE or other editor.
 
 ## Project-Setup
-<img width="1190" height="882" alt="Screenshot 2025-12-10 at 11 18 06 AM" src="https://github.com/user-attachments/assets/c66284e4-f483-45e4-9fd9-552b5b70a96b" />
+<img width="1190" height="882" alt="Screenshot 2025-12-10 at 11 18 06 AM" src="../images/spring-initializr.png" />
