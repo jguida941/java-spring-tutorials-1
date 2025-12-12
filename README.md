@@ -1,7 +1,6 @@
 # java-tutorials-spring
 
-This repository contains hands-on implementations of the official
-[Spring Guides](https://spring.io/guides), along with my detailed architecual breakdowns with easy to undertand explasnations of why "whats going on" and the "why" beghind the cdoe
+This repository contains hands-on implementations of the official Spring.io guides, along with my own notes and explanations. 
 Each subfolder is a small, focused project generated with Spring Initializr.
 
 
