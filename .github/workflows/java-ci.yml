@@ -102,7 +102,7 @@ jobs:
 
       - name: Upload test results
         if: matrix.java == '17'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: test-results
           path: |
@@ -184,7 +184,7 @@ jobs:
           echo "| Line Coverage | >=75% | Passed |" >> $GITHUB_STEP_SUMMARY
 
       - name: Upload mutation results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: mutation-results
           path: |
