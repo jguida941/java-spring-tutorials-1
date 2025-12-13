@@ -108,6 +108,7 @@ jobs:
           path: |
             **/target/surefire-reports/
             **/target/site/jacoco/
+            **/target/spotbugsXml.xml
 
   # PITest runs only on main branch (slower)
   mutation-test:
