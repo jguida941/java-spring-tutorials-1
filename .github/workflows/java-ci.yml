@@ -31,26 +31,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      - name: Build and test with JaCoCo coverage
-        run: |
-          cd 01-spring-hello-rest && ./mvnw -B -ntp test && cd ..
-          cd 02-spring-scheduling-tasks && ./mvnw -B -ntp test && cd ..
-          cd 03-quote-service && ./mvnw -B -ntp test && cd ..
-          cd 03-spring-consuming-rest && ./mvnw -B -ntp test && cd ..
+      - name: Build and test all modules
+        run: ./mvnw -B -ntp test
 
       - name: Run Checkstyle
-        run: |
-          cd 01-spring-hello-rest && ./mvnw -B -ntp checkstyle:check && cd ..
-          cd 02-spring-scheduling-tasks && ./mvnw -B -ntp checkstyle:check && cd ..
-          cd 03-quote-service && ./mvnw -B -ntp checkstyle:check && cd ..
-          cd 03-spring-consuming-rest && ./mvnw -B -ntp checkstyle:check && cd ..
+        run: ./mvnw -B -ntp checkstyle:check
 
       - name: Run SpotBugs
-        run: |
-          cd 01-spring-hello-rest && ./mvnw -B -ntp compile spotbugs:check && cd ..
-          cd 02-spring-scheduling-tasks && ./mvnw -B -ntp compile spotbugs:check && cd ..
-          cd 03-quote-service && ./mvnw -B -ntp compile spotbugs:check && cd ..
-          cd 03-spring-consuming-rest && ./mvnw -B -ntp compile spotbugs:check && cd ..
+        run: ./mvnw -B -ntp compile spotbugs:check
 
   # PITest runs only on main branch (slower)
   mutation-test:
@@ -75,9 +63,7 @@ jobs:
             ${{ runner.os }}-maven-
 
       - name: Run PITest mutation testing
-        run: |
-          cd 03-quote-service && ./mvnw -B -ntp test org.pitest:pitest-maven:mutationCoverage && cd ..
-          cd 03-spring-consuming-rest && ./mvnw -B -ntp test org.pitest:pitest-maven:mutationCoverage && cd ..
+        run: ./mvnw -B -ntp test org.pitest:pitest-maven:mutationCoverage
 
   # OWASP runs only on main branch (slower, requires NVD data)
   security-check:
@@ -110,8 +96,4 @@ jobs:
             ${{ runner.os }}-nvd-
 
       - name: Run OWASP Dependency-Check
-        run: |
-          cd 01-spring-hello-rest && ./mvnw -B -ntp org.owasp:dependency-check-maven:check && cd ..
-          cd 02-spring-scheduling-tasks && ./mvnw -B -ntp org.owasp:dependency-check-maven:check && cd ..
-          cd 03-quote-service && ./mvnw -B -ntp org.owasp:dependency-check-maven:check && cd ..
-          cd 03-spring-consuming-rest && ./mvnw -B -ntp org.owasp:dependency-check-maven:check && cd ..
+        run: ./mvnw -B -ntp org.owasp:dependency-check-maven:aggregate

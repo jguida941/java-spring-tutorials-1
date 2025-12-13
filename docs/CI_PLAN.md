@@ -16,7 +16,7 @@ This repository uses GitHub Actions for continuous integration with multiple qua
 
 | Tool | Purpose | Threshold | Fails Build? |
 |------|---------|-----------|--------------|
-| **JaCoCo** | Line coverage | 75% minimum | Yes |
+| **JaCoCo** | Line coverage | Reports only (no threshold) | No |
 | **PITest** | Mutation testing | 70% mutation, 75% coverage | Yes |
 | **SpotBugs** | Static analysis | Any error | Yes |
 | **Checkstyle** | Code style | Any violation | Yes |
@@ -37,29 +37,36 @@ Managed in parent `pom.xml`:
 
 ## Running Locally
 
-### Run all tests
+All commands run from the repository root using the aggregator POM:
+
+### Run all tests (all modules)
 ```bash
-cd <module> && ./mvnw test
+./mvnw test
 ```
 
-### Run Checkstyle
+### Run Checkstyle (all modules)
 ```bash
-cd <module> && ./mvnw checkstyle:check
+./mvnw checkstyle:check
 ```
 
-### Run SpotBugs
+### Run SpotBugs (all modules)
 ```bash
-cd <module> && ./mvnw compile spotbugs:check
+./mvnw compile spotbugs:check
 ```
 
-### Run PITest (mutation testing)
+### Run PITest (all modules)
 ```bash
-cd <module> && ./mvnw test org.pitest:pitest-maven:mutationCoverage
+./mvnw test org.pitest:pitest-maven:mutationCoverage
 ```
 
-### Run OWASP Dependency-Check
+### Run OWASP Dependency-Check (aggregated report)
 ```bash
-cd <module> && ./mvnw org.owasp:dependency-check-maven:check
+./mvnw org.owasp:dependency-check-maven:aggregate
+```
+
+### Run a single module
+```bash
+./mvnw test -pl 01-spring-hello-rest
 ```
 
 ## Performance Notes

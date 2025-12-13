@@ -87,7 +87,9 @@ The 03 modules also include:
 |----------|---------|
 | [docs/QUICK_START.md](docs/QUICK_START.md) | Run instructions for all modules |
 | [docs/project.md](docs/project.md) | Audit summary and backlog |
-| Module `docs/adr/` | Architecture Decision Records |
+| [docs/CI_PLAN.md](docs/CI_PLAN.md) | CI/CD quality gates and thresholds |
+| [docs/adr/](docs/adr/) | Repository-level ADRs |
+| Module `docs/adr/` | Module-specific ADRs |
 | Module `docs/concepts/` | Deep dives on patterns |
 
 ## Technology Stack
@@ -98,10 +100,29 @@ The 03 modules also include:
 
 ## Testing
 
-Run all tests from repo root:
+Run all tests from repo root (uses aggregator POM):
 ```bash
 ./mvnw test
 ```
+
+Run a single module:
+```bash
+./mvnw test -pl 03-quote-service
+```
+
+## CI/CD
+
+This repository uses GitHub Actions for continuous integration:
+
+| Tool | Purpose | Threshold |
+|------|---------|-----------|
+| **Checkstyle** | Code style | Fail on violation |
+| **SpotBugs** | Static analysis | Fail on error |
+| **PITest** | Mutation testing | 70% mutation score |
+| **OWASP** | Dependency security | Fail on CVSS ≥ 7 |
+| **CodeQL** | SAST scanning | Weekly + PR |
+
+See [docs/CI_PLAN.md](docs/CI_PLAN.md) for details.
 
 ## Related Resources
 

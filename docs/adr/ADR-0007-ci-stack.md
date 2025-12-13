@@ -18,7 +18,7 @@ Without CI enforcement:
 Use the following CI stack:
 
 **Build & Test:**
-- Maven with JaCoCo for line coverage (75% minimum per module)
+- Maven with JaCoCo for coverage reports (threshold enforcement planned for later)
 - Tests run on Java 17 and 21 matrix
 
 **Code Quality:**
