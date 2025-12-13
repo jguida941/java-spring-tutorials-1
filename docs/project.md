@@ -5,7 +5,7 @@ Generated: December 2025
 ## Repository Overview
 
 ```
-java-tutorials/
+java-spring-tutorials/
 ├── 01-spring-hello-rest/        # Basic REST endpoint
 ├── 02-spring-scheduling-tasks/  # Scheduled task execution
 ├── 03-quote-service/            # Backend quote API (provider)

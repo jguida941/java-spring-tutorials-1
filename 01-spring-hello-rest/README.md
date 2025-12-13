@@ -1,8 +1,8 @@
 # Spring Boot REST Service
 
-[![Coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jguida941/java-tutorials/main/badges/01-spring-hello-rest/jacoco.json)](https://github.com/jguida941/java-tutorials)
-[![Mutation](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jguida941/java-tutorials/main/badges/01-spring-hello-rest/mutation.json)](https://github.com/jguida941/java-tutorials)
-[![SpotBugs](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jguida941/java-tutorials/main/badges/01-spring-hello-rest/spotbugs.json)](https://github.com/jguida941/java-tutorials)
+[![Coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jguida941/java-spring-tutorials/main/badges/01-spring-hello-rest/jacoco.json)](https://github.com/jguida941/java-spring-tutorials)
+[![Mutation](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jguida941/java-spring-tutorials/main/badges/01-spring-hello-rest/mutation.json)](https://github.com/jguida941/java-spring-tutorials)
+[![SpotBugs](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jguida941/java-spring-tutorials/main/badges/01-spring-hello-rest/spotbugs.json)](https://github.com/jguida941/java-spring-tutorials)
 
 > Part of the [`java-tutorials-spring`](../) collection of Spring.io guide implementations.
 

@@ -1,8 +1,8 @@
 # Quote Service
 
-[![Coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jguida941/java-tutorials/main/badges/03-quote-service/jacoco.json)](https://github.com/jguida941/java-tutorials)
-[![Mutation](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jguida941/java-tutorials/main/badges/03-quote-service/mutation.json)](https://github.com/jguida941/java-tutorials)
-[![SpotBugs](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jguida941/java-tutorials/main/badges/03-quote-service/spotbugs.json)](https://github.com/jguida941/java-tutorials)
+[![Coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jguida941/java-spring-tutorials/main/badges/03-quote-service/jacoco.json)](https://github.com/jguida941/java-spring-tutorials)
+[![Mutation](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jguida941/java-spring-tutorials/main/badges/03-quote-service/mutation.json)](https://github.com/jguida941/java-spring-tutorials)
+[![SpotBugs](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jguida941/java-spring-tutorials/main/badges/03-quote-service/spotbugs.json)](https://github.com/jguida941/java-spring-tutorials)
 
 A simple Spring Boot REST API that serves quotes. This service is the backend for the [03-consuming-rest](../03-spring-consuming-rest) tutorial.
 

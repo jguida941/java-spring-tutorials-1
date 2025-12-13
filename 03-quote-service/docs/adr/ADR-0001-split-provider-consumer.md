@@ -13,7 +13,7 @@ For this learning repo, we want everything to be self-contained and written here
 
 ## Decision
 
-Create two separate modules in the `java-tutorials` repository:
+Create two separate modules in the `java-spring-tutorials` repository:
 
 - `03-quote-service` - REST API provider (this module)
 - `03-spring-consuming-rest` - REST client consumer

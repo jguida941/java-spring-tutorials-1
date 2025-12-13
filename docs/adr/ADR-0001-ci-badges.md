@@ -21,11 +21,18 @@ Options considered:
 
 Use Shields.io endpoint badges that read from JSON files committed to the `/badges/` directory.
 
-The CI workflow:
-1. Runs quality checks (JaCoCo, PITest, SpotBugs)
-2. Python script (`scripts/ci_metrics_summary.py`) parses XML reports and generates badge JSON
-3. CI commits badge files to main branch with `[skip ci]` to prevent loops
-4. Shields.io fetches JSON from `raw.githubusercontent.com` and renders the badge
+The CI workflow uses three jobs with artifact-based data transfer:
+
+1. **build-test** - Runs tests, JaCoCo, Checkstyle, SpotBugs on all pushes/PRs
+   - Uploads test results and SpotBugs XML as artifacts
+2. **mutation-test** - Runs PITest mutation testing on 03 modules only (main branch only)
+   - Uploads mutation results as artifacts
+3. **update-badges** - Runs after both jobs complete (main branch only)
+   - Downloads artifacts from previous jobs
+   - Python script (`scripts/ci_metrics_summary.py`) parses XML reports
+   - Generates badge JSON files and commits with `[skip ci]`
+
+Shields.io fetches JSON from `raw.githubusercontent.com` and renders the badge.
 
 ### Badge JSON Format
 
@@ -41,7 +48,7 @@ The CI workflow:
 ### Badge URLs
 
 ```markdown
-[![Coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jguida941/java-tutorials/main/badges/jacoco.json)]
+[![Coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jguida941/java-spring-tutorials/main/badges/jacoco.json)]
 ```
 
 ## Consequences
