@@ -11,10 +11,10 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>01-spring-hello-rest</module>
-    <module>02-spring-scheduling-tasks</module>
-    <module>03-quote-service</module>
-    <module>03-spring-consuming-rest</module>
+    <module>modules/01-spring-hello-rest</module>
+    <module>modules/02-spring-scheduling-tasks</module>
+    <module>modules/03-quote-service</module>
+    <module>modules/03-spring-consuming-rest</module>
   </modules>
 
   <properties>
