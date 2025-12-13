@@ -35,7 +35,7 @@ A simple Spring Boot REST API that serves quotes. This service is the backend fo
 |--------|--------------|-------------------|
 | GET    | `/api/`      | All quotes        |
 | GET    | `/api/random`| Random quote      |
-| GET    | `/api/{id}`  | Quote by ID (1-10)|
+| GET    | `/api/{id}`  | Quote by ID (1-10), or 404 if not found |
 
 ## JSON Response
 
