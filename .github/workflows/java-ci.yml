@@ -213,7 +213,7 @@ jobs:
         env:
           OSS_USER: ${{ secrets.OSS_INDEX_USERNAME }}
           OSS_PASS: ${{ secrets.OSS_INDEX_TOKEN }}
-        run: ./mvnw -B -ntp org.owasp:dependency-check-maven:aggregate -DossindexAnalyzerUsername="$OSS_USER" -DossindexAnalyzerPassword="$OSS_PASS"
+        run: ./mvnw -B -ntp org.owasp:dependency-check-maven:aggregate -DossIndexUsername="$OSS_USER" -DossIndexPassword="$OSS_PASS"
 
       - name: Generate Security Summary
         if: always()
