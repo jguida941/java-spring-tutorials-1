@@ -91,6 +91,34 @@ jobs:
           echo "| SpotBugs | Passed |" >> $GITHUB_STEP_SUMMARY
           echo "| JaCoCo Coverage | Generated |" >> $GITHUB_STEP_SUMMARY
 
+      - name: Set up Python
+        if: matrix.java == '17'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Generate QA metrics summary
+        if: matrix.java == '17'
+        env:
+          UPDATE_BADGES: ${{ github.ref == 'refs/heads/main' && 'true' || 'false' }}
+          MATRIX_JAVA: ${{ matrix.java }}
+          MATRIX_OS: ${{ runner.os }}
+        run: python scripts/ci_metrics_summary.py
+
+      - name: Commit updated badges
+        if: matrix.java == '17' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git status --porcelain badges | grep -q .; then
+            echo "Badge files changed, committing..."
+            git add badges/*.json badges/*/*.json
+            git commit -m "Update badges from CI [skip ci]" || exit 0
+            git push
+          else
+            echo "No badge changes to commit."
+          fi
+
   # PITest runs only on main branch (slower)
   mutation-test:
     runs-on: ubuntu-latest

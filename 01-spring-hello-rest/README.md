@@ -1,5 +1,9 @@
 # Spring Boot REST Service
 
+[![Coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jguida941/java-tutorials/main/badges/01-spring-hello-rest/jacoco.json)](https://github.com/jguida941/java-tutorials)
+[![Mutation](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jguida941/java-tutorials/main/badges/01-spring-hello-rest/mutation.json)](https://github.com/jguida941/java-tutorials)
+[![SpotBugs](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jguida941/java-tutorials/main/badges/01-spring-hello-rest/spotbugs.json)](https://github.com/jguida941/java-tutorials)
+
 > Part of the [`java-tutorials-spring`](../) collection of Spring.io guide implementations.
 
 A simple Spring Boot application that demonstrates how to build a RESTful web
@@ -27,6 +31,7 @@ When you call `/greeting`, you get a response like:
 │   │   ├── Greeting.java                 # Data record
 │   │   └── GreetingController.java       # REST controller
 │   └── test/java/com/example/restservice/
+│       ├── GreetingControllerTest.java       # Controller tests
 │       └── RestServiceApplicationTests.java
 ├── docs/
 │   ├── images/                           # Screenshots

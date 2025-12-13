@@ -69,11 +69,12 @@ public class ScheduledTasks {
 
     private static final Logger log = LoggerFactory.getLogger(ScheduledTasks.class);
 
-    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+    // DateTimeFormatter is thread-safe (unlike SimpleDateFormat)
+    private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss");
 
     @Scheduled(fixedRate = 5000)
     public void reportCurrentTime() {
-        log.info("The time is now {}", dateFormat.format(new Date()));
+        log.info("The time is now {}", LocalTime.now().format(TIME_FORMATTER));
     }
 }
 ```
@@ -84,10 +85,10 @@ This example uses `fixedRate()`, which specifies the interval between method inv
 
 ## Running the Application
 
-You should now be able to run the application by executing the main method in `SchedulingTasksApplication`. You can run the program from your IDE, or by executing the following Gradle command in the project root directory:
+You should now be able to run the application by executing the main method in `SchedulingTasksApplication`. You can run the program from your IDE, or by executing the following Maven command in the project root directory:
 
 ```bash
-./gradlew bootRun
+./mvnw spring-boot:run
 ```
 
 Doing so starts the application, and the method annotated with `@Scheduled` runs. You should see log messages similar to:
@@ -108,10 +109,10 @@ You can create a new test or view the existing test at `src/test/java/com/exampl
 
 ```java
 @SpringBootTest
-public class ScheduledTasksTest {
+class ScheduledTasksTest {
 
-    @SpyBean
-    ScheduledTasks tasks;
+    @MockitoSpyBean
+    private ScheduledTasks tasks;
 
     @Test
     public void reportCurrentTime() {
@@ -144,13 +145,13 @@ Regardless of how you choose to run the application, the output should be the sa
 To run the application, you can package the application as an executable jar:
 
 ```bash
-./gradlew clean build
+./mvnw clean package
 ```
 
 You can then run the jar with:
 
 ```bash
-java -jar build/libs/gs-scheduling-tasks-0.0.1-SNAPSHOT.jar
+java -jar target/scheduling-tasks-0.0.1-SNAPSHOT.jar
 ```
 
 ### Docker with Cloud Native Buildpacks
@@ -162,13 +163,13 @@ Spring Boot includes buildpack support directly for both Maven and Gradle. This 
 To create a Docker image using Cloud Native Buildpacks:
 
 ```bash
-./gradlew bootBuildImage
+./mvnw spring-boot:build-image
 ```
 
 With a Docker environment enabled, you can run the application with:
 
 ```bash
-docker run docker.io/library/gs-scheduling-tasks:0.0.1-SNAPSHOT
+docker run docker.io/library/scheduling-tasks:0.0.1-SNAPSHOT
 ```
 
 ## Native Image Support
@@ -187,13 +188,13 @@ plugins {
 You can then run:
 
 ```bash
-./gradlew nativeCompile
+./mvnw native:compile -Pnative
 ```
 
 When the build completes, you will be able to run the code with a near-instantaneous start up time by executing:
 
 ```bash
-build/native/nativeCompile/gs-scheduling-tasks
+target/scheduling-tasks
 ```
 
 ### Native Image with Buildpacks
@@ -201,13 +202,13 @@ build/native/nativeCompile/gs-scheduling-tasks
 You can also create a Native Image using Buildpacks:
 
 ```bash
-./gradlew bootBuildImage
+./mvnw spring-boot:build-image -Pnative
 ```
 
 Once the build completes, you can start your application with:
 
 ```bash
-docker run docker.io/library/gs-scheduling-tasks:0.0.1-SNAPSHOT
+docker run docker.io/library/scheduling-tasks:0.0.1-SNAPSHOT
 ```
 
 ## Summary

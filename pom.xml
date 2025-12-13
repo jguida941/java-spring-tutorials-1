@@ -85,6 +85,11 @@
             <threads>4</threads>
             <mutationThreshold>70</mutationThreshold>
             <coverageThreshold>75</coverageThreshold>
+            <!-- Output both HTML and XML for badge generation -->
+            <outputFormats>
+              <outputFormat>HTML</outputFormat>
+              <outputFormat>XML</outputFormat>
+            </outputFormats>
             <!-- JVM args for Java 21+ compatibility -->
             <jvmArgs>
               <jvmArg>--add-opens=java.base/java.lang=ALL-UNNAMED</jvmArg>
@@ -103,6 +108,8 @@
             <failOnError>true</failOnError>
             <effort>Max</effort>
             <threshold>Medium</threshold>
+            <!-- Generate XML report for badge generation -->
+            <xmlOutput>true</xmlOutput>
           </configuration>
         </plugin>
 

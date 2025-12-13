@@ -1,5 +1,10 @@
 # java-tutorials-spring
 
+[![Build](https://github.com/jguida941/java-tutorials/actions/workflows/java-ci.yml/badge.svg)](https://github.com/jguida941/java-tutorials/actions/workflows/java-ci.yml)
+[![Coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jguida941/java-tutorials/main/badges/jacoco.json)](https://github.com/jguida941/java-tutorials)
+[![Mutation](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jguida941/java-tutorials/main/badges/mutation.json)](https://github.com/jguida941/java-tutorials)
+[![SpotBugs](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jguida941/java-tutorials/main/badges/spotbugs.json)](https://github.com/jguida941/java-tutorials)
+
 This repository contains hands-on implementations of the official [Spring Guides](https://spring.io/guides), along with detailed architectural breakdowns explaining the "what" and "why" behind the code.
 
 Each subfolder is a small, focused project generated with Spring Initializr.
@@ -19,9 +24,9 @@ I believe in understanding over memorization. Every aspect is documented with ex
 ```mermaid
 flowchart LR
     subgraph Learning Path
-        A[01-hello-rest] --> B[02-scheduling]
+        A[01-spring-hello-rest] --> B[02-spring-scheduling-tasks]
         B --> C[03-quote-service]
-        C --> D[03-consuming-rest]
+        C --> D[03-spring-consuming-rest]
     end
     C -.->|provides API| D
 ```

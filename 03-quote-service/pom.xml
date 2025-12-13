@@ -80,6 +80,7 @@
 					<failOnError>true</failOnError>
 					<effort>Max</effort>
 					<threshold>Medium</threshold>
+					<xmlOutput>true</xmlOutput>
 				</configuration>
 			</plugin>
 			<!-- PITest -->
@@ -110,6 +111,10 @@
 					<mutationThreshold>70</mutationThreshold>
 					<coverageThreshold>75</coverageThreshold>
 					<verbose>true</verbose>
+					<outputFormats>
+						<outputFormat>HTML</outputFormat>
+						<outputFormat>XML</outputFormat>
+					</outputFormats>
 				</configuration>
 			</plugin>
 			<!-- OWASP Dependency-Check -->

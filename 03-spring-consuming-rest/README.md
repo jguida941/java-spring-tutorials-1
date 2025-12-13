@@ -1,5 +1,9 @@
 # Consuming a RESTful Web Service
 
+[![Coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jguida941/java-tutorials/main/badges/03-spring-consuming-rest/jacoco.json)](https://github.com/jguida941/java-tutorials)
+[![Mutation](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jguida941/java-tutorials/main/badges/03-spring-consuming-rest/mutation.json)](https://github.com/jguida941/java-tutorials)
+[![SpotBugs](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jguida941/java-tutorials/main/badges/03-spring-consuming-rest/spotbugs.json)](https://github.com/jguida941/java-tutorials)
+
 A Spring Boot application that consumes the [quote-service](../03-quote-service) REST API.
 
 Based on [Spring Guide: Consuming a RESTful Web Service](https://spring.io/guides/gs/consuming-rest).

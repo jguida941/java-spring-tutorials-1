@@ -4,12 +4,12 @@
 @RestController
 public class GreetingController {
 
-    private static final String template = "Hello, %s!";
-    private final AtomicLong counter = new AtomicLong();
+    public static final String TEMPLATE = "Hello, %s!";
+    private static final AtomicLong counter = new AtomicLong();
 
     @GetMapping("/greeting")
     public Greeting greeting(@RequestParam(defaultValue = "World") String name) {
-        return new Greeting(counter.incrementAndGet(), template.formatted(name));
+        return new Greeting(counter.incrementAndGet(), TEMPLATE.formatted(name));
     }
 }
 ```
@@ -91,7 +91,7 @@ Step by step:
    - `counter` is an `AtomicLong` that starts at 0
    - `incrementAndGet()` increases it by 1 and returns the new value
    - So first call returns 1, next is 2, then 3, and so on
-2. `template.formatted(name)` with `template = "Hello, %s!"`
+2. `TEMPLATE.formatted(name)` with `TEMPLATE = "Hello, %s!"`
    - If `name = "World"` → `"Hello, World!"`
    - If `name = "Justin"` → `"Hello, Justin!"`
 3. It creates a new `Greeting` object: something like:

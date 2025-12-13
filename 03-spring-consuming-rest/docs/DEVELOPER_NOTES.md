@@ -2,7 +2,7 @@
 
 **Developer:** Justin Guida  
 **Date:** December 11, 2025  
-**Status:** Draft
+**Status:** Accepted
 
 This file explains, in my own words, the main pieces of this project:
 the `Quote` / `Value` JSON model, the `QuoteController` REST client,
@@ -492,17 +492,20 @@ quote.service.base-url=http://localhost:8080
 
 ### [QuoteControllerTest.java](../src/test/java/com/example/consumingrest/QuoteControllerTest.java)
 
-Tests the QuoteController using `@RestClientTest` to mock the RestClient.
+Tests the QuoteController using `@SpringBootTest` with `@AutoConfigureMockMvc` and `@AutoConfigureMockRestServiceServer`.
 
 ```java
-@RestClientTest(QuoteController.class)
+@SpringBootTest
+@AutoConfigureMockMvc
+@AutoConfigureMockRestServiceServer
 class QuoteControllerTest {
+    @Autowired MockMvc mockMvc;
     @Autowired MockRestServiceServer server;
-    @Autowired QuoteController controller;
 }
 ```
 
 **Key testing patterns:**
 - `MockRestServiceServer` - mocks HTTP responses without real network calls
 - `server.expect()` - sets up expected requests and canned responses
+- `MockMvc` - tests HTTP endpoints without starting a real server
 - Tests both happy path (backend returns quote) and error path (backend unavailable)
