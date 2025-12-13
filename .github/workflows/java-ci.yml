@@ -196,12 +196,10 @@ jobs:
 
       - name: Run OWASP Dependency-Check
         env:
-          OSSINDEX_USER: ${{ secrets.OSS_INDEX_USERNAME }}
-          OSSINDEX_PASS: ${{ secrets.OSS_INDEX_TOKEN }}
-        run: |
-          ./mvnw -B -ntp org.owasp:dependency-check-maven:aggregate \
-            "-DossindexAnalyzerUsername=${OSSINDEX_USER}" \
-            "-DossindexAnalyzerPassword=${OSSINDEX_PASS}"
+          NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
+          OSSINDEX_USERNAME: ${{ secrets.OSS_INDEX_USERNAME }}
+          OSSINDEX_PASSWORD: ${{ secrets.OSS_INDEX_TOKEN }}
+        run: ./mvnw -B -ntp org.owasp:dependency-check-maven:aggregate
 
       - name: Generate Security Summary
         if: always()
