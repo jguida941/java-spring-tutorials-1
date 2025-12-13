@@ -20,7 +20,7 @@ public class GreetingController {
     public static final String TEMPLATE = "Hello, %s!";
 
     /** Counter used to give each greeting a unique id. */
-    public static final AtomicLong counter = new AtomicLong();
+    private static final AtomicLong counter = new AtomicLong();
 
     /**
      * Handles {@code GET /greeting} requests.

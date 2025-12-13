@@ -105,12 +105,12 @@ See [ADR-0003](../adr/ADR-0003-use-threadlocalrandom.md) for the full decision.
 
 ```java
 @GetMapping("/{id}")
-public Quote byId(@PathVariable Long id) {
+public ResponseEntity<Quote> byId(@PathVariable Long id) {
     return QUOTES.stream()
         .filter(v -> v.id().equals(id))
         .findFirst()
-        .map(v -> new Quote("success", v))
-        .orElse(new Quote("failure", new Value(id, "Quote not found")));
+        .map(v -> ResponseEntity.ok(new Quote("success", v)))
+        .orElse(ResponseEntity.notFound().build());
 }
 ```
 
@@ -122,24 +122,14 @@ public Quote byId(@PathVariable Long id) {
 
 **What the method does:**
 1. Look through all quotes until it finds one with the same id.
-2. If it finds one, return `Quote("success", value)`.
-3. If it does not find one, return `Quote("failure", new Value(id, "Quote not found"))`.
+2. If it finds one, return HTTP 200 with `Quote("success", value)`.
+3. If it does not find one, return HTTP 404 (Not Found).
 
-Again, you can think of it like a normal loop:
+Using `ResponseEntity` gives us proper HTTP status codes:
+- `ResponseEntity.ok(...)` returns 200 OK with the body
+- `ResponseEntity.notFound().build()` returns 404 Not Found with no body
 
-```java
-public Quote byId(Long id) {
-    for (Value v : QUOTES) {
-        if (v.id().equals(id)) {
-            return new Quote("success", v);
-        }
-    }
-    // nothing found
-    return new Quote("failure", new Value(id, "Quote not found"));
-}
-```
-
-The stream version is just a shorter, chained way to write this search.
+This follows REST best practices where missing resources return 404.
 
 ---
 
@@ -175,6 +165,6 @@ The controller has tests in `QuoteControllerTest.java` that verify all three end
 | `getAllQuotes_returnsListOf10Quotes` | `/api/` returns 10 quotes with type="success" |
 | `getRandomQuote_returnsSuccessWithValidId` | `/api/random` returns a valid quote |
 | `getQuoteById_withValidId_returnsQuote` | `/api/5` returns the correct quote |
-| `getQuoteById_withInvalidId_returnsFailure` | `/api/999` returns type="failure" |
+| `getQuoteById_withInvalidId_returns404` | `/api/999` returns HTTP 404 Not Found |
 
 The tests use `@WebMvcTest` which loads only the web layer, making them fast. Spring Boot 4.0 moved this annotation to the `org.springframework.boot.webmvc.test.autoconfigure` package.

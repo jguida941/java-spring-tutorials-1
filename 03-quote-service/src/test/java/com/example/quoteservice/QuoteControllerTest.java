@@ -46,10 +46,8 @@ class QuoteControllerTest {
     }
 
     @Test
-    void getQuoteById_withInvalidId_returnsFailure() throws Exception {
+    void getQuoteById_withInvalidId_returns404() throws Exception {
         mockMvc.perform(get("/api/999"))
-            .andExpect(status().isOk())
-            .andExpect(jsonPath("$.type", is("failure")))
-            .andExpect(jsonPath("$.value.quote", is("Quote not found")));
+            .andExpect(status().isNotFound());
     }
 }

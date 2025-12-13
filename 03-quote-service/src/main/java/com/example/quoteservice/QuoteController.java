@@ -3,6 +3,7 @@ package com.example.quoteservice;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,16 +60,16 @@ public class QuoteController {
     }
 
     /**
-     * Returns a quote by its id, or a failure message if not found.
+     * Returns a quote by its id, or HTTP 404 if not found.
      *
      * @param id quote identifier (1-10)
      */
     @GetMapping("/{id}")
-    public Quote byId(@PathVariable Long id) {
+    public ResponseEntity<Quote> byId(@PathVariable Long id) {
         return QUOTES.stream()
             .filter(v -> v.id().equals(id))
             .findFirst()
-            .map(v -> new Quote("success", v))
-            .orElse(new Quote("failure", new Value(id, "Quote not found")));
+            .map(v -> ResponseEntity.ok(new Quote("success", v)))
+            .orElse(ResponseEntity.notFound().build());
     }
 }

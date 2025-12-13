@@ -418,7 +418,7 @@ private static final List<Value> QUOTES = List.of(...);
 |------|--------|---------|
 | `/api/` | `all()` | All quotes as List<Quote> |
 | `/api/random` | `random()` | Single random quote |
-| `/api/{id}` | `byId()` | Quote by ID or "failure" response |
+| `/api/{id}` | `byId()` | Quote by ID or HTTP 404 |
 
 **Thread-safe random selection:**
 ```java
@@ -493,4 +493,4 @@ class QuoteControllerTest {
 | `getAllQuotes_returnsListOf10Quotes` | `/api/` returns 10 quotes with type="success" |
 | `getRandomQuote_returnsSuccessWithValidId` | `/api/random` returns a valid quote |
 | `getQuoteById_withValidId_returnsQuote` | `/api/5` returns the correct quote |
-| `getQuoteById_withInvalidId_returnsFailure` | `/api/999` returns type="failure" |
+| `getQuoteById_withInvalidId_returns404` | `/api/999` returns HTTP 404 Not Found |

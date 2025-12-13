@@ -6,7 +6,7 @@ Accepted
 
 ## Context
 
-The consumer module (03-consuming-rest) follows the "Consuming a RESTful Web Service" guide and expects a specific JSON structure from the quote service. We need to decide on the API endpoints and response format.
+The consumer module (03-spring-consuming-rest) follows the "Consuming a RESTful Web Service" guide and expects a specific JSON structure from the quote service. We need to decide on the API endpoints and response format.
 
 The official Spring guide uses this JSON structure:
 
