@@ -100,27 +100,14 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Generate QA metrics summary
+      - name: Upload test results
         if: matrix.java == '17'
-        env:
-          UPDATE_BADGES: ${{ github.ref == 'refs/heads/main' && 'true' || 'false' }}
-          MATRIX_JAVA: ${{ matrix.java }}
-          MATRIX_OS: ${{ runner.os }}
-        run: python scripts/ci_metrics_summary.py
-
-      - name: Commit updated badges
-        if: matrix.java == '17' && github.ref == 'refs/heads/main'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if git status --porcelain badges | grep -q .; then
-            echo "Badge files changed, committing..."
-            git add badges/*.json badges/*/*.json
-            git commit -m "Update badges from CI [skip ci]" || exit 0
-            git push
-          else
-            echo "No badge changes to commit."
-          fi
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: |
+            **/target/surefire-reports/
+            **/target/site/jacoco/
 
   # PITest runs only on main branch (slower)
   mutation-test:
@@ -194,6 +181,57 @@ jobs:
           echo "|--------|----------|--------|" >> $GITHUB_STEP_SUMMARY
           echo "| Mutation Score | >=70% | Passed |" >> $GITHUB_STEP_SUMMARY
           echo "| Line Coverage | >=75% | Passed |" >> $GITHUB_STEP_SUMMARY
+
+      - name: Upload mutation results
+        uses: actions/upload-artifact@v4
+        with:
+          name: mutation-results
+          path: |
+            **/target/pit-reports/
+
+  # Update badges after all tests complete
+  update-badges:
+    runs-on: ubuntu-latest
+    needs: [build-test, mutation-test]
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Download test results
+        uses: actions/download-artifact@v4
+        with:
+          name: test-results
+          path: ./
+
+      - name: Download mutation results
+        uses: actions/download-artifact@v4
+        with:
+          name: mutation-results
+          path: ./
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Generate QA metrics summary
+        env:
+          UPDATE_BADGES: 'true'
+        run: python scripts/ci_metrics_summary.py
+
+      - name: Commit updated badges
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git status --porcelain badges | grep -q .; then
+            echo "Badge files changed, committing..."
+            git add badges/*.json badges/*/*.json
+            git commit -m "Update badges from CI [skip ci]" || exit 0
+            git push
+          else
+            echo "No badge changes to commit."
+          fi
 
   # OWASP runs only on main branch (slower, requires NVD data)
   security-check:
