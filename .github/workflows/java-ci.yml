@@ -1,0 +1,117 @@
+name: Java CI
+
+on:
+  push:
+    branches: [ main, develop, 'tutorial-*' ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        java: [ '17', '21' ]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK ${{ matrix.java }}
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: ${{ matrix.java }}
+
+      - name: Cache Maven repository
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      - name: Build and test with JaCoCo coverage
+        run: |
+          cd 01-spring-hello-rest && ./mvnw -B -ntp test && cd ..
+          cd 02-spring-scheduling-tasks && ./mvnw -B -ntp test && cd ..
+          cd 03-quote-service && ./mvnw -B -ntp test && cd ..
+          cd 03-spring-consuming-rest && ./mvnw -B -ntp test && cd ..
+
+      - name: Run Checkstyle
+        run: |
+          cd 01-spring-hello-rest && ./mvnw -B -ntp checkstyle:check && cd ..
+          cd 02-spring-scheduling-tasks && ./mvnw -B -ntp checkstyle:check && cd ..
+          cd 03-quote-service && ./mvnw -B -ntp checkstyle:check && cd ..
+          cd 03-spring-consuming-rest && ./mvnw -B -ntp checkstyle:check && cd ..
+
+      - name: Run SpotBugs
+        run: |
+          cd 01-spring-hello-rest && ./mvnw -B -ntp compile spotbugs:check && cd ..
+          cd 02-spring-scheduling-tasks && ./mvnw -B -ntp compile spotbugs:check && cd ..
+          cd 03-quote-service && ./mvnw -B -ntp compile spotbugs:check && cd ..
+          cd 03-spring-consuming-rest && ./mvnw -B -ntp compile spotbugs:check && cd ..
+
+  # PITest runs only on main branch (slower)
+  mutation-test:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Cache Maven repository
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      - name: Run PITest mutation testing
+        run: |
+          cd 03-quote-service && ./mvnw -B -ntp test org.pitest:pitest-maven:mutationCoverage && cd ..
+          cd 03-spring-consuming-rest && ./mvnw -B -ntp test org.pitest:pitest-maven:mutationCoverage && cd ..
+
+  # OWASP runs only on main branch (slower, requires NVD data)
+  security-check:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Cache Maven repository
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      - name: Cache NVD data
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository/org/owasp/dependency-check-data
+          key: ${{ runner.os }}-nvd-${{ github.run_id }}
+          restore-keys: |
+            ${{ runner.os }}-nvd-
+
+      - name: Run OWASP Dependency-Check
+        run: |
+          cd 01-spring-hello-rest && ./mvnw -B -ntp org.owasp:dependency-check-maven:check && cd ..
+          cd 02-spring-scheduling-tasks && ./mvnw -B -ntp org.owasp:dependency-check-maven:check && cd ..
+          cd 03-quote-service && ./mvnw -B -ntp org.owasp:dependency-check-maven:check && cd ..
+          cd 03-spring-consuming-rest && ./mvnw -B -ntp org.owasp:dependency-check-maven:check && cd ..

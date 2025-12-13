@@ -130,12 +130,14 @@ java-tutorials/
 - [x] Create QUICK_START.md
 - [x] Transform root README.md
 
-### Phase B (Later)
-- [ ] Add PITest mutation testing
-- [ ] Add SpotBugs static analysis
-- [ ] Add OWASP dependency check
-- [ ] Add CodeQL workflow
-- [ ] Add Dependabot
+### Phase B (Complete)
+- [x] Add PITest mutation testing
+- [x] Add SpotBugs static analysis
+- [x] Add OWASP dependency check
+- [x] Add CodeQL workflow
+- [x] Add Dependabot
+- [x] Create CI_PLAN.md
+- [x] Create ADR-0007 (CI stack decision)
 
 ### Phase C (Later)
 - [ ] Add CHANGELOG.md
