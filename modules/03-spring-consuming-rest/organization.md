@@ -335,14 +335,14 @@ Commit 3: Fix doc links + API contracts + ADR index
 - [x] 12. Create docs/adr/README.md (ADR index + explains module-specific ADRs)
 - [x] 13. Add "API Contract" section to modules/03-quote-service/README.md
 - [x] 14. Add "API Contract" section to modules/03-spring-consuming-rest/README.md
-- [ ] Commit: "docs: fix links, add API contract sections, add ADR index"
+- [x] Commit: "docs: fix links, add API contract sections, add ADR index" (0ea7133)
 
 Commit 4: Add new essential files
 
-15. Create AGENTS.md (≤150 lines, single root file, links to module READMEs/ADR index)
-16. Create .editorconfig
-17. Create docs/README.md (TOC landing page)
-- Commit: "chore: add AGENTS.md, .editorconfig, docs/README.md"
+- [x] 15. Create AGENTS.md (≤150 lines, single root file, links to module READMEs/ADR index)
+- [x] 16. Create .editorconfig
+- [x] 17. Create docs/README.md (TOC landing page)
+- [ ] Commit: "chore: add AGENTS.md, .editorconfig, docs/README.md"
 
 Commit 5: Cleanup + link check
 
