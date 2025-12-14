@@ -57,6 +57,7 @@ jobs:
           echo "| 02-spring-scheduling-tasks | Scheduled tasks with @Scheduled | 4.0.0 |" >> $GITHUB_STEP_SUMMARY
           echo "| 03-quote-service | Quote provider API | 4.0.0 |" >> $GITHUB_STEP_SUMMARY
           echo "| 03-spring-consuming-rest | REST client with RestClient | 4.0.0 |" >> $GITHUB_STEP_SUMMARY
+          echo "| 04-spring-relational-data-access | JdbcTemplate with H2 | 4.0.0 |" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
           echo "### Test Results by Module" >> $GITHUB_STEP_SUMMARY

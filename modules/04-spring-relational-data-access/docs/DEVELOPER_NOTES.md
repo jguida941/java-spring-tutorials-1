@@ -165,4 +165,4 @@ A: {Answer you discovered}
 - [Spring Guide: Relational Data Access](https://spring.io/guides/gs/relational-data-access/)
 - [Spring Docs: JdbcTemplate](https://docs.spring.io/spring-framework/reference/data-access/jdbc/core.html)
 - [PostgreSQL Docker Image](https://hub.docker.com/_/postgres)
-- [GitHub Actions Service Containers](https://docs.github.com/en/actions/use-containerized-services/use-docker-service-containers)
+- [GitHub Actions Service Containers](https://docs.github.com/en/actions/use-cases-and-examples/using-containerized-services/about-service-containers)
