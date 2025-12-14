@@ -48,9 +48,3 @@ Scaffolding templates for new modules and docs:
 | [CONCEPT.md](../templates/CONCEPT.md) | Technical explanation |
 | [DEVELOPER_NOTES.md](../templates/DEVELOPER_NOTES.md) | Personal notes |
 
-## Other Documents
-
-| Document | Description |
-|----------|-------------|
-| [project.md](project.md) | Audit summary and backlog |
-| [AUDIT.md](AUDIT.md) | Documentation structure audit |

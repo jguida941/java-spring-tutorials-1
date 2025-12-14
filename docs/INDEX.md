@@ -24,8 +24,6 @@ Complete file index for the java-spring-tutorials repository.
 | AI guidance | [AGENTS.md](../AGENTS.md) |
 | Run all modules | [QUICK_START.md](QUICK_START.md) |
 | CI quality gates | [CI_PLAN.md](CI_PLAN.md) |
-| Documentation audit | [AUDIT.md](AUDIT.md) |
-| Project backlog | [project.md](project.md) |
 
 ---
 
@@ -289,8 +287,6 @@ Scaffold placeholder for the Spring JDBC relational data guide. Code not yet imp
 | [INDEX.md](INDEX.md) | This file - master index |
 | [QUICK_START.md](QUICK_START.md) | Run instructions for all modules |
 | [CI_PLAN.md](CI_PLAN.md) | CI/CD quality gates |
-| [project.md](project.md) | Audit summary and backlog |
-| [AUDIT.md](AUDIT.md) | Documentation structure audit |
 
 ### Repository-Level ADRs
 
@@ -299,6 +295,7 @@ Scaffold placeholder for the Spring JDBC relational data guide. Code not yet imp
 | [ADR-0001-ci-badges.md](adr/ADR-0001-ci-badges.md) | Shields.io endpoint badges |
 | [ADR-0007-ci-stack.md](adr/ADR-0007-ci-stack.md) | CI quality gates stack |
 | [ADR-0008-changelog-format.md](adr/ADR-0008-changelog-format.md) | Changelog format |
+| [ADR-0009-lychee-link-checker.md](adr/ADR-0009-lychee-link-checker.md) | Lychee link checker configuration |
 
 ### Templates
 
@@ -372,13 +369,14 @@ Auto-generated JSON files for Shields.io:
 | 03-cr | [ConsumingRestApplicationTests.java](../modules/03-spring-consuming-rest/src/test/java/com/example/consumingrest/ConsumingRestApplicationTests.java) | Context load |
 | 03-cr | [QuoteControllerTest.java](../modules/03-spring-consuming-rest/src/test/java/com/example/consumingrest/QuoteControllerTest.java) | Mocked backend tests |
 
-### All ADRs (10)
+### All ADRs (11)
 
 | Location | ADR | Decision |
 |----------|-----|----------|
 | Root | [ADR-0001](adr/ADR-0001-ci-badges.md) | CI badges |
 | Root | [ADR-0007](adr/ADR-0007-ci-stack.md) | CI stack |
 | Root | [ADR-0008](adr/ADR-0008-changelog-format.md) | Changelog format |
+| Root | [ADR-0009](adr/ADR-0009-lychee-link-checker.md) | Link checker config |
 | 03-qs | [ADR-0001](../modules/03-quote-service/docs/adr/ADR-0001-split-provider-consumer.md) | Split modules |
 | 03-qs | [ADR-0002](../modules/03-quote-service/docs/adr/ADR-0002-rest-api-shape.md) | API shape |
 | 03-qs | [ADR-0003](../modules/03-quote-service/docs/adr/ADR-0003-use-threadlocalrandom.md) | ThreadLocalRandom |
@@ -410,7 +408,7 @@ Auto-generated JSON files for Shields.io:
 |----------|-------|
 | Java source files | 14 |
 | Java test files | 8 |
-| Markdown docs | 35 |
-| ADRs | 10 |
+| Markdown docs | 33 |
+| ADRs | 11 |
 | Images | 10 |
 | Modules | 5 |

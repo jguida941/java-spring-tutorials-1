@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Module 04: `04-spring-relational-data-access` - Spring JDBC with JdbcTemplate and H2
 - `CHANGELOG.md` - Keep-a-changelog format
 - `ADR-0008` - Changelog format decision
+- `ADR-0009` - Lychee link checker configuration decision
 - `.lychee.toml` - Link checker configuration for CI
 - Link Checking section in AGENTS.md
 
@@ -25,6 +26,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Mermaid "learning path" diagram from root README (doesn't scale with growing modules)
 - `docs/ORGANIZATION.md` - Stale planning document
 - `modules/03-spring-consuming-rest/organization.md` - Duplicate file
+- `docs/project.md` - Stale audit/backlog document (reorganization complete)
+- `docs/AUDIT.md` - Stale structure audit (reorganization complete)
+- `plan.md` - Completed reorganization plan
 
 ## [0.2.0] - 2024-12-13
 

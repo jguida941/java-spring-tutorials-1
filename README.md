@@ -81,7 +81,6 @@ The 03 modules also include:
 |----------|---------|
 | [AGENTS.md](AGENTS.md) | AI guidance for scaffolding and consistency |
 | [docs/QUICK_START.md](docs/QUICK_START.md) | Run instructions for all modules |
-| [docs/project.md](docs/project.md) | Audit summary and backlog |
 | [docs/CI_PLAN.md](docs/CI_PLAN.md) | CI/CD quality gates and thresholds |
 | [docs/adr/](docs/adr/) | Repository-level ADRs |
 | [templates/](templates/) | Scaffolding templates for new modules |

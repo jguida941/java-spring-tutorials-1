@@ -114,4 +114,3 @@ Register for free at https://ossindex.sonatype.org/ to get credentials.
 ## Related Documentation
 
 - [ADR-0007: CI Stack](adr/ADR-0007-ci-stack.md) - Why these tools were chosen
-- [project.md](project.md) - Repository audit and backlog

@@ -9,6 +9,7 @@ This directory contains repository-level Architecture Decision Records (ADRs).
 | [ADR-0001](ADR-0001-ci-badges.md) | Use Shields.io Endpoint Badges | Accepted | 2025-12-13 |
 | [ADR-0007](ADR-0007-ci-stack.md) | CI Quality Gates Stack | Accepted | 2025-12-13 |
 | [ADR-0008](ADR-0008-changelog-format.md) | Changelog Format | Accepted | 2025-12-13 |
+| [ADR-0009](ADR-0009-lychee-link-checker.md) | Lychee Link Checker Configuration | Accepted | 2025-12-13 |
 
 ## ADR Numbering
 
