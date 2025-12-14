@@ -22,6 +22,7 @@ This repository uses GitHub Actions for continuous integration with multiple qua
 | **Checkstyle** | Code style | Any violation | Yes |
 | **OWASP** | Dependency security | CVSS >= 7.0 | Yes |
 | **CodeQL** | SAST security | High/Critical | Yes |
+| **Lychee** | Markdown link checker | Uses `.lychee.toml` (excludes `templates/**`, `localhost`) | Yes |
 
 ## Tool Versions
 

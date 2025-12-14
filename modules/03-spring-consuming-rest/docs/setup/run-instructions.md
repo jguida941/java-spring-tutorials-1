@@ -55,5 +55,5 @@ You should see a JSON response like:
 ## Flow
 
 ```
-curl :8081/quote ’ consumer ’ :8080/api/random ’ provider ’ JSON ’ consumer ’ JSON back
+curl :8081/quote â€™ consumer â€™ :8080/api/random â€™ provider â€™ JSON â€™ consumer â€™ JSON back
 ```
