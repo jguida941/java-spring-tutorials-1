@@ -23,8 +23,6 @@ exclude = [
 # Exclude paths (templates have placeholder links by design)
 exclude_path = [
     "templates",
-    "templates/*",
-    "templates/**",
 ]
 
 # Accept these status codes as valid

@@ -1,4 +1,4 @@
-# java-tutorials-spring
+# java-spring-tutorials
 
 [![Build](https://github.com/jguida941/java-spring-tutorials/actions/workflows/java-ci.yml/badge.svg)](https://github.com/jguida941/java-spring-tutorials/actions/workflows/java-ci.yml)
 [![Coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jguida941/java-spring-tutorials/main/ci/badges/jacoco.json)](https://github.com/jguida941/java-spring-tutorials)
