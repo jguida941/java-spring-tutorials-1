@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
   "label": "spotbugs",
-  "message": "n/a",
-  "color": "9CA3AF"
+  "message": "clean",
+  "color": "16A34A"
 }
