@@ -1,7 +1,7 @@
 # ADR-0008: Changelog Format
 
 Status: Accepted
-Date: 2024-12-13
+Date: 2025-12-13
 
 ## Context
 

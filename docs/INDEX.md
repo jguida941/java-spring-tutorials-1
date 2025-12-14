@@ -342,7 +342,7 @@ Auto-generated JSON files for Shields.io:
 
 ## By File Type
 
-### All Java Source Files (16)
+### All Java Source Files (14)
 
 | Module | File | Description |
 |--------|------|-------------|
