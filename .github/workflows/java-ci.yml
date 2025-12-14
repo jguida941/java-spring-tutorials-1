@@ -135,7 +135,7 @@ jobs:
       - name: Run PITest mutation testing (03 modules only)
         run: |
           ./mvnw -B -ntp test org.pitest:pitest-maven:mutationCoverage \
-            -pl 03-quote-service,03-spring-consuming-rest 2>&1 | tee pitest-output.log
+            -pl modules/03-quote-service,modules/03-spring-consuming-rest 2>&1 | tee pitest-output.log
 
       - name: Generate Mutation Test Summary
         if: always()
@@ -219,15 +219,15 @@ jobs:
       - name: Generate QA metrics summary
         env:
           UPDATE_BADGES: 'true'
-        run: python scripts/ci_metrics_summary.py
+        run: python ci/scripts/ci_metrics_summary.py
 
       - name: Commit updated badges
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if git status --porcelain badges | grep -q .; then
+          if git status --porcelain ci/badges | grep -q .; then
             echo "Badge files changed, committing..."
-            git add badges/*.json badges/*/*.json
+            git add ci/badges/*.json ci/badges/*/*.json
             git commit -m "Update badges from CI [skip ci]" || exit 0
             git push
           else

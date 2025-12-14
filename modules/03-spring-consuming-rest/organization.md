@@ -312,19 +312,17 @@ Commit 1: git mv moves (preserve history)
 - [x] git mv docs/templates/* templates/
 - [x] Remove empty dirs (badges, scripts, docs/templates removed automatically by git)
 - [x] Run ./mvnw clean verify - BUILD SUCCESS (18 tests passed)
-- [ ] Commit: "chore: move modules to modules/, badges/scripts to ci/, templates to root"
+- [x] Commit: "chore: move modules to modules/, badges/scripts to ci/, templates to root" (a634be4)
 
 Commit 2: Fix build & CI paths
 
-1. Update parent pom.xml module paths to modules/01-...
-2. Update module POMs: Checkstyle configLocation from ../checkstyle.xml →
-   ../../checkstyle.xml
-3. Scan module POMs for other ../ paths that need updating (now one level deeper)
-   rg "\\.\\./[^/]" modules/*/pom.xml  # find relative parent refs
-4. Update .github/workflows/java-ci.yml (targets, artifacts, PITest -pl)
-5. Update ci/scripts/ci_metrics_summary.py (ROOT, MODULES, badge paths)
-- Run ./mvnw clean verify again
-- Commit: "fix: update pom, CI workflow, and metrics script paths for new structure"
+- [x] 1. Update parent pom.xml module paths to modules/01-... (done in Commit 1)
+- [x] 2. Update module POMs: Checkstyle configLocation from ../checkstyle.xml → ../../checkstyle.xml
+- [x] 3. Scan module POMs for other ../ paths - only checkstyle needed updating
+- [x] 4. Update .github/workflows/java-ci.yml (PITest -pl, scripts path, badges path)
+- [x] 5. Update ci/scripts/ci_metrics_summary.py (ROOT, MODULES, badge paths)
+- [ ] Run ./mvnw clean verify again
+- [ ] Commit: "fix: update pom, CI workflow, and metrics script paths for new structure"
 
 Commit 3: Fix doc links + API contracts + ADR index
 

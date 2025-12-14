@@ -18,13 +18,13 @@ import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-BADGES_DIR = ROOT / "badges"
+ROOT = Path(__file__).resolve().parents[2]
+BADGES_DIR = ROOT / "ci" / "badges"
 MODULES = [
-    "01-spring-hello-rest",
-    "02-spring-scheduling-tasks",
-    "03-quote-service",
-    "03-spring-consuming-rest",
+    "modules/01-spring-hello-rest",
+    "modules/02-spring-scheduling-tasks",
+    "modules/03-quote-service",
+    "modules/03-spring-consuming-rest",
 ]
 
 
