@@ -80,9 +80,9 @@ jobs:
 
           echo "" >> $GITHUB_STEP_SUMMARY
 
-          # Total tests
-          total_run=$(grep "Tests run:" build-output.log | grep -oE "Tests run: [0-9]+" | grep -oE "[0-9]+" | awk '{s+=$1} END {print s}')
-          total_fail=$(grep "Failures:" build-output.log | grep -oE "Failures: [0-9]+" | grep -oE "[0-9]+" | awk '{s+=$1} END {print s}')
+          # Total tests (only count lines with "in com.example" to avoid summary double-count)
+          total_run=$(grep "Tests run:.*in com.example" build-output.log | grep -oE "Tests run: [0-9]+" | grep -oE "[0-9]+" | awk '{s+=$1} END {print s}')
+          total_fail=$(grep "Tests run:.*in com.example" build-output.log | grep -oE "Failures: [0-9]+" | grep -oE "[0-9]+" | awk '{s+=$1} END {print s}')
           echo "**Total: ${total_run:-0} tests, ${total_fail:-0} failures**" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
