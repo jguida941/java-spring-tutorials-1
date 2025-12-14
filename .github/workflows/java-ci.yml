@@ -66,7 +66,7 @@ jobs:
           echo "|--------|-------|--------|--------|---------|" >> $GITHUB_STEP_SUMMARY
 
           # Parse test results for each module
-          for module in "rest_service" "scheduling-tasks" "quote-service" "consuming-rest"; do
+          for module in "restservice" "schedulingtasks" "quoteservice" "consumingrest" "relationaldataaccess"; do
             # Find test line for this module's test class
             test_line=$(grep "Tests run:.*in com.example" build-output.log | grep -i "${module//-/}" | head -1 || echo "")
             if [ -n "$test_line" ]; then

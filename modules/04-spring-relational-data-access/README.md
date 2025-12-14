@@ -1,6 +1,7 @@
 # Relational Data Access with Spring JDBC
 
 [![Coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jguida941/java-spring-tutorials/main/ci/badges/04-spring-relational-data-access/jacoco.json)](https://github.com/jguida941/java-spring-tutorials)
+[![Mutation](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jguida941/java-spring-tutorials/main/ci/badges/04-spring-relational-data-access/mutation.json)](https://github.com/jguida941/java-spring-tutorials)
 [![SpotBugs](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/jguida941/java-spring-tutorials/main/ci/badges/04-spring-relational-data-access/spotbugs.json)](https://github.com/jguida941/java-spring-tutorials)
 
 A Spring Boot console application that demonstrates JdbcTemplate for database operations with H2.
