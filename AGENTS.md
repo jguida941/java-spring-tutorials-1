@@ -19,20 +19,22 @@ Before making changes, read these in order:
 
 ## Adding a New Module
 
-**Naming convention**: `modules/0N-spring-<guide-name>/` (e.g., `modules/04-spring-jdbc-data/`)
+**Naming conventions**:
+- Module folder: `modules/0N-spring-<guide-name>/` (e.g., `modules/04-spring-jdbc-data/`)
+- Package: `com.example.<modulename>` (e.g., `com.example.relationaldataaccess`)
 
 **Scaffold checklist**:
 1. Copy `templates/MODULE_README.md` to `modules/0N-name/README.md`
-2. Create child `pom.xml` (inherit from parent, use `../../checkstyle.xml`)
+2. Copy `templates/pom.xml` and customize (artifact, name, description, dependencies)
 3. Copy `.gitattributes` from an existing module
-4. Create `src/main/resources/application.properties` (set `server.port` to avoid conflicts with existing modules; note any required dependencies like H2/JDBC)
+4. Create `src/main/resources/application.properties` (set `server.port` to avoid conflicts; note any required dependencies like H2/JDBC)
 5. Create docs structure:
-   - `docs/setup/spring-initializr.md` - Spring Initializr settings
-   - `docs/setup/run-instructions.md` - How to run the module
-   - `docs/concepts/` - At least one concept doc (use `templates/CONCEPT.md`)
-   - `docs/reference/guide.md` - Link to official Spring guide
-   - `docs/images/` - Screenshots (PNG preferred)
-6. For complex modules: add `docs/DEVELOPER_NOTES.md` (use template)
+   - `docs/setup/spring-initializr.md` - use `templates/spring-initializr.md`
+   - `docs/setup/run-instructions.md` - use `templates/run-instructions.md`
+   - `docs/concepts/` - at least one concept doc (use `templates/CONCEPT.md`)
+   - `docs/reference/guide.md` - link to official Spring guide
+   - `docs/images/` - screenshots (PNG preferred)
+6. For complex modules: add `docs/DEVELOPER_NOTES.md` (use `templates/DEVELOPER_NOTES.md`)
 7. For modules with ADRs: create `docs/adr/` folder
 
 **After scaffolding**:
