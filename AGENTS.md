@@ -25,7 +25,7 @@ Before making changes, read these in order:
 1. Copy `templates/MODULE_README.md` to `modules/0N-name/README.md`
 2. Create child `pom.xml` (inherit from parent, use `../../checkstyle.xml`)
 3. Copy `.gitattributes` from an existing module
-4. Create `src/main/resources/application.properties` (set `server.port`, avoid conflicts)
+4. Create `src/main/resources/application.properties` (set `server.port` to avoid conflicts with existing modules; note any required dependencies like H2/JDBC)
 5. Create docs structure:
    - `docs/setup/spring-initializr.md` - Spring Initializr settings
    - `docs/setup/run-instructions.md` - How to run the module
@@ -38,7 +38,7 @@ Before making changes, read these in order:
 **After scaffolding**:
 - Add `<module>modules/0N-name</module>` to parent `pom.xml`
 - Add to root `README.md` contents table
-- Add to `docs/INDEX.md`
+- Add to `docs/README.md` and `docs/INDEX.md`
 - Add port to Module Ports table below (if applicable)
 - After first successful CI build: add badge links to module README
 
