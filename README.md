@@ -19,18 +19,6 @@ The goal of this repo is to:
 
 I believe in understanding over memorization. Every aspect is documented with explanations of why decisions were made.
 
-## Architecture Overview
-
-```mermaid
-flowchart LR
-    subgraph Learning Path
-        A[01-spring-hello-rest] --> B[02-spring-scheduling-tasks]
-        B --> C[03-quote-service]
-        C --> D[03-spring-consuming-rest]
-    end
-    C -.->|provides API| D
-```
-
 ## Contents
 
 | Module | Guide | Status | Spring Concepts |
@@ -48,7 +36,7 @@ More guides will be added over time.
 See [docs/QUICK_START.md](docs/QUICK_START.md) for run instructions.
 
 ```bash
-cd <module-folder>
+cd modules/<module-name>
 ./mvnw spring-boot:run
 ```
 
