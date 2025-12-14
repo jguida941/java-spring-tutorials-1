@@ -353,12 +353,12 @@ Commit 5: Cleanup + link check
 - [x] 22. chatgptAudit.md already doesn't exist (incorporated into ORGANIZATION.md earlier)
 - [x] 23. docs/ORGANIZATION.md already updated
 - [x] 24. Add markdown link checker to CI workflow (lychee with ignore list)
-- [ ] 25. Run ./mvnw clean verify final check
-- [ ] Commit: "chore: add missing files, add link checker to CI"
+- [x] 25. Run ./mvnw clean verify - BUILD SUCCESS (17 tests passed)
+- [x] Commit: "chore: add missing files, add link checker to CI" (6ae77d9)
 
 Final verification
 
-- Push all commits
+- [ ] Push all commits (5 commits ahead of origin/main)
 - Verify CI passes (build + link checker)
 - Check external docs/pages that reference old badges/ paths
 
