@@ -8,14 +8,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 - Module 04: `04-spring-relational-data-access` - Spring JDBC with JdbcTemplate and H2
+- `CHANGELOG.md` - Keep-a-changelog format
+- `ADR-0008` - Changelog format decision
 - `.lychee.toml` - Link checker configuration for CI
 - Link Checking section in AGENTS.md
 
 ### Changed
 - Updated AGENTS.md with module 04 port table entry
-- Updated docs/QUICK_START.md with module 04
+- Simplified `docs/QUICK_START.md` - fixed module paths, moved 03 integration details to module README
 - Updated ci/scripts/ci_metrics_summary.py to include module 04
 - Fixed CI workflow duplicate link check output
+- Fixed module 04 pom.xml to use repo's checkstyle.xml
 
 ### Removed
 - `docs/ORGANIZATION.md` - Stale planning document
