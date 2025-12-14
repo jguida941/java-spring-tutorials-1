@@ -9,8 +9,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Added
 - Module 04: `04-spring-relational-data-access` - Spring JDBC with JdbcTemplate and H2
 - `CHANGELOG.md` - Keep-a-changelog format
-- `ADR-0008` - Changelog format decision
-- `ADR-0009` - Lychee link checker configuration decision
+- `ADR-0003` - Changelog format decision
+- `ADR-0004` - Lychee link checker configuration decision
 - `.lychee.toml` - Link checker configuration for CI
 - Link Checking section in AGENTS.md
 

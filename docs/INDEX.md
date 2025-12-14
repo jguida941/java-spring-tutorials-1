@@ -293,9 +293,9 @@ Scaffold placeholder for the Spring JDBC relational data guide. Code not yet imp
 | ADR | Decision |
 |-----|----------|
 | [ADR-0001-ci-badges.md](adr/ADR-0001-ci-badges.md) | Shields.io endpoint badges |
-| [ADR-0007-ci-stack.md](adr/ADR-0007-ci-stack.md) | CI quality gates stack |
-| [ADR-0008-changelog-format.md](adr/ADR-0008-changelog-format.md) | Changelog format |
-| [ADR-0009-lychee-link-checker.md](adr/ADR-0009-lychee-link-checker.md) | Lychee link checker configuration |
+| [ADR-0002-ci-stack.md](adr/ADR-0002-ci-stack.md) | CI quality gates stack |
+| [ADR-0003-changelog-format.md](adr/ADR-0003-changelog-format.md) | Changelog format |
+| [ADR-0004-lychee-link-checker.md](adr/ADR-0004-lychee-link-checker.md) | Lychee link checker configuration |
 
 ### Templates
 
@@ -374,9 +374,9 @@ Auto-generated JSON files for Shields.io:
 | Location | ADR | Decision |
 |----------|-----|----------|
 | Root | [ADR-0001](adr/ADR-0001-ci-badges.md) | CI badges |
-| Root | [ADR-0007](adr/ADR-0007-ci-stack.md) | CI stack |
-| Root | [ADR-0008](adr/ADR-0008-changelog-format.md) | Changelog format |
-| Root | [ADR-0009](adr/ADR-0009-lychee-link-checker.md) | Link checker config |
+| Root | [ADR-0002](adr/ADR-0002-ci-stack.md) | CI stack |
+| Root | [ADR-0003](adr/ADR-0003-changelog-format.md) | Changelog format |
+| Root | [ADR-0004](adr/ADR-0004-lychee-link-checker.md) | Link checker config |
 | 03-qs | [ADR-0001](../modules/03-quote-service/docs/adr/ADR-0001-split-provider-consumer.md) | Split modules |
 | 03-qs | [ADR-0002](../modules/03-quote-service/docs/adr/ADR-0002-rest-api-shape.md) | API shape |
 | 03-qs | [ADR-0003](../modules/03-quote-service/docs/adr/ADR-0003-use-threadlocalrandom.md) | ThreadLocalRandom |

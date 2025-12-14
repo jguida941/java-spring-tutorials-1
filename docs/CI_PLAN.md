@@ -113,4 +113,4 @@ Register for free at https://ossindex.sonatype.org/ to get credentials.
 
 ## Related Documentation
 
-- [ADR-0007: CI Stack](adr/ADR-0007-ci-stack.md) - Why these tools were chosen
+- [ADR-0002: CI Stack](adr/ADR-0002-ci-stack.md) - Why these tools were chosen

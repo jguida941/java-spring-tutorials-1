@@ -18,7 +18,7 @@ Repository-level ADRs are in [adr/](adr/):
 | ADR | Decision |
 |-----|----------|
 | [ADR-0001](adr/ADR-0001-ci-badges.md) | Shields.io endpoint badges |
-| [ADR-0007](adr/ADR-0007-ci-stack.md) | CI quality gates stack |
+| [ADR-0002](adr/ADR-0002-ci-stack.md) | CI quality gates stack |
 
 See [adr/README.md](adr/README.md) for the full index including module-specific ADRs.
 

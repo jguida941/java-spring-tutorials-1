@@ -1,4 +1,4 @@
-# ADR-0007: CI and Quality Gates for java-tutorials
+# ADR-0002: CI and Quality Gates for java-tutorials
 
 Status: Accepted
 Date: 2025-12-13

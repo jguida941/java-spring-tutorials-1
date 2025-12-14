@@ -1,4 +1,4 @@
-# ADR-0009: Lychee Link Checker Configuration
+# ADR-0004: Lychee Link Checker Configuration
 
 Status: Accepted
 Date: 2025-12-13
@@ -139,4 +139,4 @@ Rejected because:
 - [Lychee Documentation](https://lychee.cli.rs/)
 - [Lychee GitHub Action](https://github.com/lycheeverse/lychee-action)
 - [.lychee.toml](../../.lychee.toml) - Configuration file
-- [ADR-0007](ADR-0007-ci-stack.md) - CI quality gates stack
+- [ADR-0002](ADR-0002-ci-stack.md) - CI quality gates stack

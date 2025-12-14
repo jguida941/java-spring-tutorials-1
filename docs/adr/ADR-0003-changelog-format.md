@@ -1,4 +1,4 @@
-# ADR-0008: Changelog Format
+# ADR-0003: Changelog Format
 
 Status: Accepted
 Date: 2025-12-13
