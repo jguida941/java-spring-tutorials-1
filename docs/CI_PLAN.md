@@ -58,8 +58,8 @@ All commands run from the repository root using the aggregator POM:
 
 ### Run PITest (all modules)
 ```bash
-# Note: CI runs PITest on main only for modules/03-quote-service and modules/03-spring-consuming-rest.
-# Adjust -pl if you need to include other modules locally.
+# Note: CI runs PITest on main only for modules with mutation testing enabled (currently the 03 modules).
+# Adjust -pl to include additional modules locally as you add PITest to them.
 ./mvnw test org.pitest:pitest-maven:mutationCoverage
 ```
 
