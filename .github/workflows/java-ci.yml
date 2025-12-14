@@ -65,14 +65,14 @@ jobs:
           echo "| Module | Tests | Passed | Failed | Skipped |" >> $GITHUB_STEP_SUMMARY
           echo "|--------|-------|--------|--------|---------|" >> $GITHUB_STEP_SUMMARY
 
-          # Parse test results for each module
+          # Parse test results for each module (sum all test classes)
           for module in "restservice" "schedulingtasks" "quoteservice" "consumingrest" "relationaldataaccess"; do
-            # Find test line for this module's test class
-            test_line=$(grep "Tests run:.*in com.example" build-output.log | grep -i "${module//-/}" | head -1 || echo "")
-            if [ -n "$test_line" ]; then
-              run=$(echo "$test_line" | grep -oE "Tests run: [0-9]+" | grep -oE "[0-9]+" || echo "0")
-              fail=$(echo "$test_line" | grep -oE "Failures: [0-9]+" | grep -oE "[0-9]+" || echo "0")
-              skip=$(echo "$test_line" | grep -oE "Skipped: [0-9]+" | grep -oE "[0-9]+" || echo "0")
+            # Sum all test lines for this module
+            module_lines=$(grep "Tests run:.*in com.example" build-output.log | grep -i "$module" || echo "")
+            if [ -n "$module_lines" ]; then
+              run=$(echo "$module_lines" | grep -oE "Tests run: [0-9]+" | grep -oE "[0-9]+" | awk '{s+=$1} END {print s}')
+              fail=$(echo "$module_lines" | grep -oE "Failures: [0-9]+" | grep -oE "[0-9]+" | awk '{s+=$1} END {print s}')
+              skip=$(echo "$module_lines" | grep -oE "Skipped: [0-9]+" | grep -oE "[0-9]+" | awk '{s+=$1} END {print s}')
               pass=$((run - fail))
               echo "| $module | $run | $pass | $fail | $skip |" >> $GITHUB_STEP_SUMMARY
             fi
