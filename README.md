@@ -64,16 +64,14 @@ module-name/
 ├── src/main/java/              # Source code
 ├── src/test/java/              # Tests
 ├── docs/
+│   ├── DEVELOPER_NOTES.md      # Personal notes (some modules)
 │   ├── setup/                  # How to create and run the project
 │   ├── concepts/               # Explanations of key classes and patterns
-│   └── reference/              # Original Spring guide (where applicable)
+│   ├── reference/              # Original Spring guide (where applicable)
+│   └── adr/                    # Architecture Decision Records (some modules)
 ├── pom.xml                     # Maven configuration
 └── README.md                   # Overview and documentation index
 ```
-
-The 03 modules also include:
-- `docs/DEVELOPER_NOTES.md` - Personal notes and detailed explanations
-- `docs/adr/` - Architecture Decision Records documenting the "why" behind design choices
 
 ## Documentation
 
