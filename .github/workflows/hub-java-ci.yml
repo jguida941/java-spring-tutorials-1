@@ -98,6 +98,14 @@ on:
         description: 'Max PMD violations allowed'
         type: number
         default: 0
+      max_checkstyle_errors:
+        description: 'Max Checkstyle errors allowed'
+        type: number
+        default: 0
+      max_spotbugs_bugs:
+        description: 'Max SpotBugs bugs allowed'
+        type: number
+        default: 0
       artifact_prefix:
         description: 'Artifact name prefix (for multiple jobs)'
         type: string
@@ -145,6 +153,8 @@ jobs:
       max_high_vulns: ${{ fromJSON(inputs.max_high_vulns) }}
       max_semgrep_findings: ${{ fromJSON(inputs.max_semgrep_findings) }}
       max_pmd_violations: ${{ fromJSON(inputs.max_pmd_violations) }}
+      max_checkstyle_errors: ${{ fromJSON(inputs.max_checkstyle_errors) }}
+      max_spotbugs_bugs: ${{ fromJSON(inputs.max_spotbugs_bugs) }}
       artifact_prefix: ${{ inputs.artifact_prefix }}
       docker_compose_file: ${{ inputs.docker_compose_file }}
       docker_health_endpoint: ${{ inputs.docker_health_endpoint }}
