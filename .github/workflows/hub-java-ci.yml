@@ -54,6 +54,10 @@ on:
         description: 'Run PITest mutation testing'
         type: boolean
         default: true
+      run_jqwik:
+        description: 'Run jqwik property-based testing'
+        type: boolean
+        default: false
       run_semgrep:
         description: 'Run Semgrep SAST'
         type: boolean
@@ -142,6 +146,7 @@ jobs:
       run_owasp: ${{ inputs.run_owasp }}
       run_pmd: ${{ inputs.run_pmd }}
       run_pitest: ${{ inputs.run_pitest }}
+      run_jqwik: ${{ inputs.run_jqwik }}
       run_semgrep: ${{ inputs.run_semgrep }}
       run_trivy: ${{ inputs.run_trivy }}
       run_docker: ${{ inputs.run_docker }}
