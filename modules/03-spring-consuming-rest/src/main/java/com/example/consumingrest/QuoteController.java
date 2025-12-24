@@ -22,7 +22,7 @@ import org.springframework.web.client.RestClientException;
 @RestController
 public class QuoteController {
 
-    private static final Logger log = LoggerFactory.getLogger(QuoteController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(QuoteController.class);
 
     private final RestClient restClient;
 
@@ -51,7 +51,7 @@ public class QuoteController {
                     .retrieve()
                     .body(Quote.class);
         } catch (RestClientException e) {
-            log.error("Failed to fetch quote from quote-service", e);
+            LOG.error("Failed to fetch quote from quote-service", e);
             return new Quote("error", new com.example.consumingrest.Value(-1L, "Quote service unavailable"));
         }
     }

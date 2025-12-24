@@ -17,13 +17,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class ScheduledTasks {
 
-    private static final Logger log = LoggerFactory.getLogger(ScheduledTasks.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ScheduledTasks.class);
 
     // DateTimeFormatter is thread-safe (unlike SimpleDateFormat)
     private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss");
 
     @Scheduled(fixedRate = 5000)
     public void reportCurrentTime() {
-        log.info("The time is now {}", LocalTime.now().format(TIME_FORMATTER));
+        LOG.info("The time is now {}", LocalTime.now().format(TIME_FORMATTER));
     }
 }

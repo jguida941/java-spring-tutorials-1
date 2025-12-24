@@ -15,7 +15,7 @@ import java.util.stream.Stream;
 @SpringBootApplication
 public class RelationalDataAccessApplication implements CommandLineRunner {
 
-	private static final Logger log = LoggerFactory.getLogger(RelationalDataAccessApplication.class);
+	private static final Logger LOG = LoggerFactory.getLogger(RelationalDataAccessApplication.class);
 
 	public static void main(String[] args) {
 		SpringApplication.run(RelationalDataAccessApplication.class, args);
@@ -33,7 +33,7 @@ public class RelationalDataAccessApplication implements CommandLineRunner {
 	@Override
 	public void run(String... strings) throws Exception {
 
-		log.info("Creating tables");
+		LOG.info("Creating tables");
 
 		jdbcTemplate.execute("DROP TABLE IF EXISTS customers");
 		jdbcTemplate.execute("CREATE TABLE customers(" +
@@ -45,15 +45,15 @@ public class RelationalDataAccessApplication implements CommandLineRunner {
 				.collect(Collectors.toList());
 
 		// Use a Java 8 stream to print out each tuple of the list
-		splitUpNames.forEach(name -> log.info("Inserting customer record for {} {}", name[0], name[1]));
+		splitUpNames.forEach(name -> LOG.info("Inserting customer record for {} {}", name[0], name[1]));
 
 		// Use JdbcTemplate's batchUpdate operation to bulk load data
 		jdbcTemplate.batchUpdate("INSERT INTO customers(first_name, last_name) VALUES (?,?)", splitUpNames);
 
-		log.info("Querying for customer records where first_name = 'Josh':");
+		LOG.info("Querying for customer records where first_name = 'Josh':");
 		jdbcTemplate.query(
 				"SELECT id, first_name, last_name FROM customers WHERE first_name = ?",
 				(rs, rowNum) -> new Customer(rs.getLong("id"), rs.getString("first_name"), rs.getString("last_name")), "Josh")
-		.forEach(customer -> log.info(customer.toString()));
+		.forEach(customer -> LOG.info(customer.toString()));
 	}
 }

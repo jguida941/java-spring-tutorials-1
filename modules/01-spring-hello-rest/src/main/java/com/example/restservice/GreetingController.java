@@ -20,7 +20,7 @@ public class GreetingController {
     public static final String TEMPLATE = "Hello, %s!";
 
     /** Counter used to give each greeting a unique id. */
-    private static final AtomicLong counter = new AtomicLong();
+    private static final AtomicLong COUNTER = new AtomicLong();
 
     /**
      * Handles {@code GET /greeting} requests.
@@ -32,6 +32,6 @@ public class GreetingController {
      */
     @GetMapping("/greeting")
     public Greeting greeting(@RequestParam(defaultValue = "World") String name) {
-        return new Greeting(counter.incrementAndGet(), TEMPLATE.formatted(name));
+        return new Greeting(COUNTER.incrementAndGet(), TEMPLATE.formatted(name));
     }
 }
