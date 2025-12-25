@@ -87,6 +87,10 @@ on:
         description: 'Run CodeQL analysis'
         type: boolean
         default: false
+      run_docker:
+        description: 'Run Docker integration tests'
+        type: boolean
+        default: false
 
       # ---- Threshold Override ----
       threshold_overrides_yaml:
@@ -126,6 +130,7 @@ jobs:
       run_semgrep: ${{ inputs.run_semgrep }}
       run_trivy: ${{ inputs.run_trivy }}
       run_codeql: ${{ inputs.run_codeql }}
+      run_docker: ${{ inputs.run_docker }}
 
       # ---- Threshold Override ----
       threshold_overrides_yaml: ${{ inputs.threshold_overrides_yaml }}
