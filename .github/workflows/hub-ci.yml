@@ -16,9 +16,16 @@
 
 name: "Hub: Java CI"
 
+# ============================================================================
+# DISPATCH INPUTS: Tool toggles only (booleans)
+# THRESHOLDS: Set in .ci-hub.yml or edit defaults below
+# See ADR-0024 for rationale (GitHub 25-input limit)
+# ============================================================================
+
 on:
   workflow_dispatch:
     inputs:
+      # ---- Essential Settings ----
       java_version:
         description: 'Java version'
         type: string
@@ -31,6 +38,12 @@ on:
         description: 'Working directory (for monorepos)'
         type: string
         default: '.'
+      hub_correlation_id:
+        description: 'Correlation ID (set by orchestrator)'
+        type: string
+        default: ''
+
+      # ---- Tool Toggles (booleans only) ----
       run_jacoco:
         description: 'Run JaCoCo coverage'
         type: boolean
@@ -45,6 +58,10 @@ on:
         default: true
       run_owasp:
         description: 'Run OWASP Dependency Check'
+        type: boolean
+        default: true
+      use_nvd_api_key:
+        description: 'Use NVD API key for faster OWASP scans'
         type: boolean
         default: true
       run_pmd:
@@ -71,50 +88,20 @@ on:
         description: 'Run CodeQL analysis'
         type: boolean
         default: false
-      coverage_min:
-        description: 'Minimum coverage %'
-        type: number
-        default: 70
-      mutation_score_min:
-        description: 'Minimum mutation score %'
-        type: number
-        default: 70
-      owasp_cvss_fail:
-        description: 'CVSS score to fail on'
-        type: number
-        default: 7
-      max_critical_vulns:
-        description: 'Max critical vulns allowed'
-        type: number
-        default: 0
-      max_high_vulns:
-        description: 'Max high vulns allowed'
-        type: number
-        default: 0
-      max_semgrep_findings:
-        description: 'Max Semgrep findings allowed'
-        type: number
-        default: 0
-      max_pmd_violations:
-        description: 'Max PMD violations allowed'
-        type: number
-        default: 0
-      max_checkstyle_errors:
-        description: 'Max Checkstyle errors allowed'
-        type: number
-        default: 0
-      max_spotbugs_bugs:
-        description: 'Max SpotBugs bugs allowed'
-        type: number
-        default: 0
-      artifact_prefix:
-        description: 'Artifact name prefix (for multiple jobs)'
+      run_docker:
+        description: 'Run Docker integration tests'
+        type: boolean
+        default: false
+
+      # ---- Threshold Override ----
+      threshold_overrides_yaml:
+        description: 'YAML string with threshold overrides'
         type: string
         default: ''
-      retention_days:
-        description: 'Artifact retention days'
-        type: number
-        default: 30
+
+      # ---- NOTE: Thresholds not in dispatch ----
+      # To customize thresholds, edit the defaults in the 'with:' block below
+      # or set them in your .ci-hub.yml (see docs/guides/ONBOARDING.md)
 
 # Required permissions for reusable workflow features
 permissions:
@@ -126,28 +113,41 @@ jobs:
   ci:
     uses: jguida941/ci-cd-hub/.github/workflows/java-ci.yml@v1
     with:
+      # ---- From dispatch inputs ----
       java_version: ${{ inputs.java_version }}
       build_tool: ${{ inputs.build_tool }}
       workdir: ${{ inputs.workdir }}
+      hub_correlation_id: ${{ inputs.hub_correlation_id }}
+
+      # ---- Tool toggles (from dispatch) ----
       run_jacoco: ${{ inputs.run_jacoco }}
       run_checkstyle: ${{ inputs.run_checkstyle }}
       run_spotbugs: ${{ inputs.run_spotbugs }}
       run_owasp: ${{ inputs.run_owasp }}
+      use_nvd_api_key: ${{ inputs.use_nvd_api_key }}
       run_pmd: ${{ inputs.run_pmd }}
       run_pitest: ${{ inputs.run_pitest }}
       run_jqwik: ${{ inputs.run_jqwik }}
       run_semgrep: ${{ inputs.run_semgrep }}
       run_trivy: ${{ inputs.run_trivy }}
       run_codeql: ${{ inputs.run_codeql }}
-      coverage_min: ${{ fromJSON(inputs.coverage_min) }}
-      mutation_score_min: ${{ fromJSON(inputs.mutation_score_min) }}
-      owasp_cvss_fail: ${{ fromJSON(inputs.owasp_cvss_fail) }}
-      max_critical_vulns: ${{ fromJSON(inputs.max_critical_vulns) }}
-      max_high_vulns: ${{ fromJSON(inputs.max_high_vulns) }}
-      max_semgrep_findings: ${{ fromJSON(inputs.max_semgrep_findings) }}
-      max_pmd_violations: ${{ fromJSON(inputs.max_pmd_violations) }}
-      max_checkstyle_errors: ${{ fromJSON(inputs.max_checkstyle_errors) }}
-      max_spotbugs_bugs: ${{ fromJSON(inputs.max_spotbugs_bugs) }}
-      artifact_prefix: ${{ inputs.artifact_prefix }}
-      retention_days: ${{ fromJSON(inputs.retention_days) }}
+      run_docker: ${{ inputs.run_docker }}
+
+      # ---- Threshold Override ----
+      threshold_overrides_yaml: ${{ inputs.threshold_overrides_yaml }}
+
+      # ---- Thresholds (edit these defaults or set in .ci-hub.yml) ----
+      coverage_min: 70
+      mutation_score_min: 70
+      owasp_cvss_fail: 7
+      max_critical_vulns: 0
+      max_high_vulns: 0
+      max_semgrep_findings: 0
+      max_pmd_violations: 0
+      max_checkstyle_errors: 0
+      max_spotbugs_bugs: 0
+
+      # ---- Metadata (edit if needed) ----
+      artifact_prefix: ''
+      retention_days: 30
     secrets: inherit
