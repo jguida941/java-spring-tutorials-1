@@ -23,6 +23,22 @@ on:
         description: 'Correlation ID (set by hub orchestrator)'
         type: string
         default: ''
+      cihub_debug:
+        description: 'Enable debug mode'
+        type: boolean
+        default: false
+      cihub_verbose:
+        description: 'Enable verbose output'
+        type: boolean
+        default: false
+      cihub_debug_context:
+        description: 'Enable context debugging'
+        type: boolean
+        default: false
+      cihub_emit_triage:
+        description: 'Emit triage bundle on failures'
+        type: boolean
+        default: false
   push:
   pull_request:
 
